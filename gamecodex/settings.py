@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'profiles',
+    'games',
 ]
 
 SITE_ID = 1
