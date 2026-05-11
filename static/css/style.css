@@ -1,6 +1,5 @@
 /* ============ Site Wide Styles ============ */
 
-
 /* CSS Variables */
 :root {
     /* Typography */
@@ -16,9 +15,6 @@
 }
 
 /* Global Styles */
-body {
-    background-color: var(--color-accent-1);
-}
 
 
 /* Navbar */
