@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container my-5 text-center">
+    <div class="pb-4">
+        <h1>Search Games</h1>
+    </div>
+    <!-- Search Bar -->
+    <form method="GET" id="search-form" class="row g-3 align-items-center">
+        <!-- Search input -->
+        <div class="col-md-6">
+            <input type="text" name="q" class="form-control" placeholder="Search for a game..." value="{{ request.GET.q }}">
+        </div>
+        <!-- Console dropdown -->
+        <div class="col-md-3">
+            <select name="platform" class="form-select">
+                <option>All Platforms</option>
+                <option>PlayStation 5</option>
+                <option>PlayStation 4</option>
+                <option>Xbox Series X/S</option>
+                <option>Nintendo Switch</option>
+                <option>PC</option>
+            </select>
+        </div>
+        <!-- Submit button -->
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100">
+                Search
+            </button>
+        </div>
+    </form>
+
+    <!-- Loading State Using JavaScript-->
+
+
+    <!-- Search Results -->
+
+    
+</section>
+{% endblock %}
