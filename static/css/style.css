@@ -1,0 +1,28 @@
+/* ============ Site Wide Styles ============ */
+
+
+/* CSS Variables */
+:root {
+    /* Typography */
+    --font-primary: ;
+
+    /* Core colours */
+    --color-primary: black;
+    --color-secondary: white;
+
+    /* Accent colours */
+    --color-accent-1: purple;
+    --color-accent-2: red;
+}
+
+/* Global Styles */
+body {
+    background-color: var(--color-accent-1);
+}
+
+
+/* Navbar */
+
+
+
+/* ============ Page Styles ============ */
