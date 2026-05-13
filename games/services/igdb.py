@@ -25,7 +25,7 @@ def search_games(query):
         "Client-ID": CLIENT_ID,
         "Authorization": f"Bearer {ACCESS_TOKEN}",
     }
-    body = f'search "{query}"; fields name, cover.image_id, summary; limit 20;'
+    body = f'search "{query}"; fields name, cover.image_id, summary, total_rating, rating;; limit 20;'
 
     # API Request Error Handling
     try:
@@ -37,7 +37,16 @@ def search_games(query):
                 "results": []
             }
 
-        return {"error": None, "results": response.json()}
+        results = response.json()
+
+        # Sort by popularity
+        results = sorted(
+            results,
+            key=lambda g: g.get("total_rating", g.get("rating", 0)),
+            reverse=True
+        )
+
+        return {"error": None, "results": results}
 
     except requests.exceptions.RequestException:
         return {"error": "Network error contacting IGDB.", "results": []}
