@@ -10,8 +10,9 @@
     --font-body: "Inter", sans-serif;
 
     /* Core colours */
-    --color-primary: black;
-    --color-secondary: white;
+    --color-font: white;
+    --color-primary-1: rgb(1, 60, 60);
+    --color-primary-2: rgb(0, 7, 23);
 
     /* Accent colours */
     --color-accent-1: purple;
@@ -25,10 +26,32 @@ h1, h2, h3 {
 
 body {
     font-family: var(--font-body);
+    color: var(--color-font);
+    background: linear-gradient(to right, var(--color-primary-1), var(--color-primary-2));
 }
 
 /* Navbar */
+#navbar {
+    background-color: white !important;
+}
 
-
+#navbar .navbar-brand,
+#navbar .nav-link  {
+    background: linear-gradient(to right, var(--color-primary-1), var(--color-primary-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#navbar .nav-link:hover {
+    background-image:
+        linear-gradient(to right, var(--color-primary-1), var(--color-primary-2)), /* Created two gradients (one for the text, one for the underline) */
+        linear-gradient(to right, var(--color-primary-1), var(--color-primary-2));
+    background-size: 100% 100%, 100% 2px; /* Stack gradients as background layers (full-size layer for the text and thin layer for the underline) */
+    background-position: 0 0, 0 100%;     /* Position the second gradient at the bottom so it becomes a gradient underline */
+    background-repeat: no-repeat;
+    -webkit-background-clip: text, border-box; /* Text layer clipped to text and underline layer clipped to border area */
+    background-clip: text, border-box;
+    -webkit-text-fill-color: transparent; /* Made the text transparent so the gradient becomes the visible*/
+}
 
 /* ============ Page Styles ============ */
