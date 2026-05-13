@@ -5,7 +5,7 @@ def search_view(request):
     query = request.GET.get("q", "")
     response = search_games(query)
 
-    return render(request, "search.html", {
+    return render(request, "games/search.html", {
         "query": query,
         "error": response["error"],
         "results": response["results"],

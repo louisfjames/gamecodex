@@ -30,10 +30,25 @@
     </form>
 
     <!-- Loading State Using JavaScript-->
-
+    
 
     <!-- Search Results -->
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
 
+    {% if results %}
+        <ul>
+            {% for game in results %}
+                <li>
+                    <strong>{{ game.name }}</strong>
+                    {% if game.summary %}
+                        <p>{{ game.summary }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     
 </section>
 {% endblock %}
