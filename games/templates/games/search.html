@@ -42,6 +42,11 @@
             {% for game in results %}
                 <li>
                     <strong>{{ game.name }}</strong>
+                    
+                    {% if game.cover %}
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover.image_id }}.jpg" alt="{{ game.name }}">
+                    {% endif %}
+                    
                     {% if game.summary %}
                         <p>{{ game.summary }}</p>
                     {% endif %}
@@ -50,5 +55,7 @@
         </ul>
     {% endif %}
     
+    
+
 </section>
 {% endblock %}
