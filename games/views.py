@@ -3,7 +3,9 @@ from .services.igdb import search_games
 
 def search_view(request):
     query = request.GET.get("q", "")
-    response = search_games(query)
+    response = {"error": None, "results": []}
+    if query:
+        response = search_games(query)
 
     return render(request, "games/search.html", {
         "query": query,
