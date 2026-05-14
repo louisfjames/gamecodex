@@ -17,6 +17,8 @@
     /* Accent colours */
     --color-accent-1: rgba(255, 255, 255, 0.08);
     --color-accent-2: rgba(255, 255, 255, 0.18);
+    --color-hover-1: rgba(255, 255, 255, 0.22);
+    --color-hover-2: rgba(255, 255, 255, 0.35);
 }
 
 /* Global Styles */
@@ -71,6 +73,25 @@ body {
 .result-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.result-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.custom-btn {
+    background-color: var(--color-accent-1);
+    border: 1px solid var(--color-accent-2);
+    color: var(--color-font);
+    border-radius: 10px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-btn:hover {
+    background-color: var(--color-hover-1);
+    border-color: var(--color-hover-2);
 }
 
 
