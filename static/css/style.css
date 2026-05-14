@@ -70,6 +70,32 @@ body {
     border-color: var(--color-hover-2);
 }
 
+/* Dropdowns */
+.custom-dropdown {
+    appearance: none; /* removes default arrow */
+    padding-right: 2rem; /* space for custom arrow */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path fill='white' d='M0 0l6 8 6-8z'/></svg>");
+    background-size: 11px 7px;
+    background-color: var(--color-accent-1);
+    border: 1px solid var(--color-accent-2);
+    color: var(--color-font);
+    border-radius: 10px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    outline: none; /* removes blue outline */
+}
+
+.custom-dropdown:hover,
+.custom-dropdown:focus {
+    background-color: var(--color-hover-1);
+    border-color: var(--color-hover-2);
+    color: var(--color-font);
+    box-shadow: none; /* removes Bootstrap focus glow */
+}
+
+.custom-dropdown option {
+    background-color: var(--color-primary-1);
+    color: var(--color-font);
+}
 
 /* ============ Search Page Styles ============ */
 
