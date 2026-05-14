@@ -15,8 +15,8 @@
     --color-primary-2: rgb(0, 7, 23);
 
     /* Accent colours */
-    --color-accent-1: purple;
-    --color-accent-2: red;
+    --color-accent-1: ;
+    --color-accent-2:;
 }
 
 /* Global Styles */
@@ -55,3 +55,4 @@ body {
 }
 
 /* ============ Page Styles ============ */
+
