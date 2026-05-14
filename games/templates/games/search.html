@@ -62,17 +62,9 @@
                             {% endif %}
 
 
-                            <!-- Status Dropdown -->
-                            <div class="input-group mt-2">
-                                <select class="form-select custom-dropdown">
-                                    <option selected>Select status</option>
-                                    <option>Backlog</option>
-                                    <option>Playing</option>
-                                    <option>Completed</option>
-                                    <option>Abandoned</option>
-                                </select>
-                                <button class="btn custom-btn" type="button">Add</button>
-                            </div>
+                            <!-- Add to Library Button -->
+                            <a href="{% url 'add_game' %}?title={{ game.name|urlencode }}" class="btn custom-btn mt-2">Add to My Library</a>
+
                         </div>
 
                     </div>
