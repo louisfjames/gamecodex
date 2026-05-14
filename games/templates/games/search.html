@@ -52,6 +52,16 @@
                                 <p class="card-text small">{{ game.summary|truncatewords:25 }}</p>
                             {% endif %}
 
+                            {% if game.platform_names %}
+                                <p class="card-text small">
+                                    Platforms:
+                                    {% for name in game.platform_names %}
+                                        {{ name }}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+
+
                             <!-- Status Dropdown -->
                             <div class="input-group mt-2">
                                 <select class="form-select custom-dropdown">

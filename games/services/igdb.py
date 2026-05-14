@@ -11,6 +11,33 @@ PLATFORM_IDS = {
     "PC": [6],
 }
 
+PLATFORM_LOOKUP = {
+    7: "PS1",
+    8: "PS2",
+    9: "PS3",
+    48: "PS4",
+    167: "PS5",
+    38: "PSP",
+    46: "PS Vita",
+
+    11: "Xbox",
+    12: "Xbox 360",
+    49: "Xbox One",
+    169: "Xbox Series X/S",
+
+    130: "Switch",
+    41: "Wii U",
+    5: "Wii",
+    21: "GameCube",
+    4: "N64",
+    19: "SNES",
+    18: "NES",
+    20: "DS",
+    37: "3DS",
+
+    6: "PC",
+}
+
 def search_games(query, platform=None):
     """
     IGDB search function.
