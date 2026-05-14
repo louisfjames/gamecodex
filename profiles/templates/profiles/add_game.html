@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center p-5">
+    <div class="glass-card p-4">
+        <h2 class="text-center mb-4">Add Game to Your List</h2>
+
+        <form method="post" class="form-center">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <label class="form-label">Title:</label>
+                {{ form.title }}
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">Platform:</label>
+                {{ form.platform }}
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">Status:</label>
+                {{ form.status }}
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">Date started:</label>
+                {{ form.date_started }}
+            </div>
+
+            <div class="form-row">
+                <label class="form-label">Date completed:</label>
+                {{ form.date_completed }}
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a href="{% url 'search' %}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
