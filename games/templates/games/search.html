@@ -1,31 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="container my-5 text-center">
+<section class="container text-center py-5">
     <div class="pb-4">
-        <h1>Search Games</h1>
+        <h2 class="fw-semibold mb-2">Search Games</h2>
+        <p class="lead opacity-75">Trackng your journey is just one search away...</p>
     </div>
-    <!-- Search Bar -->
-    <form method="GET" id="search-form" class="row g-3 align-items-center">
-        <!-- Search input -->
-        <div class="col-md-6">
+
+    <!-- Search Bar Row -->
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-8 col-lg-6">
             <input type="search" name="q" class="form-control search-bar" placeholder="Search for a game..." value="{{ request.GET.q }}">
         </div>
-        <!-- Console dropdown -->
-        <div class="col-md-3">
+    </div>
+
+    <!-- Search Search Row -->
+    <form method="GET" id="search-form" class="row g-3 align-items-center justify-content-center mb-5">
+        <div class="col-md-3 col-lg-2">
             <select name="platform" class="form-select custom-dropdown">
                 <option>All Platforms</option>
-                <option>PlayStation 5</option>
-                <option>PlayStation 4</option>
-                <option>Xbox Series X/S</option>
-                <option>Nintendo Switch</option>
+                <option>PlayStation</option>
+                <option>Xbox</option>
+                <option>Nintendo</option>
                 <option>PC</option>
             </select>
         </div>
-        <!-- Submit button -->
-        <div class="col-md-3">
-            <button type="submit" class="btn btn-success w-100">
-                Search
-            </button>
+        <div class="col-md-3 col-lg-2">
+            <button type="submit" class="btn btn-success px-5">Search</button>
         </div>
     </form>
 
