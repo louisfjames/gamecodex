@@ -4,7 +4,14 @@ import requests
 CLIENT_ID = os.environ.get("IGDB_CLIENT_ID")
 ACCESS_TOKEN = os.environ.get("IGDB_ACCESS_TOKEN")
 
-def search_games(query):
+PLATFORM_IDS = {
+    "PlayStation": [7, 8, 9, 48, 167, 38, 46], # IGDB IDs for PS1 to PS5 and handheld (PSP & Vita_
+    "Xbox": [11, 12, 49, 169], # IGDB IDs for Xbox to Series X/S
+    "Nintendo": [130, 41, 5, 21, 4, 19, 18, 20, 37], # IGDB IDs for NES to Switch 2 and handheld (DS & 3DS)
+    "PC": [6],
+}
+
+def search_games(query, platform=None):
     """
     IGDB search function.
     Sends a search query to IGDB and returns raw JSON.
@@ -19,17 +26,29 @@ def search_games(query):
     if not CLIENT_ID or not ACCESS_TOKEN:
         return {"error": "IGDB credentials missing.", "results": []}
 
+        
+    # Base APICalypse Query
+    query_string = f'search "{query}"; fields name, cover.image_id, platforms, summary, total_rating, rating;'
+
+    # Platform filtering
+    if platform and platform in PLATFORM_IDS:
+        ids = PLATFORM_IDS[platform]
+        id_string = ",".join(map(str, ids))
+        query_string += f" where platforms = ({id_string});"
+
+    # Ending Query String w/ Limit
+    query_string += " limit 20;"
+
     # API Request Setup
     url = "https://api.igdb.com/v4/games"
     headers = {
         "Client-ID": CLIENT_ID,
         "Authorization": f"Bearer {ACCESS_TOKEN}",
     }
-    body = f'search "{query}"; fields name, cover.image_id, summary, total_rating, rating;; limit 20;'
 
     # API Request Error Handling
     try:
-        response = requests.post(url, headers=headers, data=body, timeout=5)
+        response = requests.post(url, headers=headers, data=query_string, timeout=5)
 
         if response.status_code != 200:
             return {
