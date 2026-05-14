@@ -6,22 +6,20 @@
         <p class="lead opacity-75">Trackng your journey is just one search away...</p>
     </div>
 
-    <!-- Search Bar Row -->
-    <div class="row justify-content-center mb-3">
-        <div class="col-md-8 col-lg-6">
-            <input type="search" name="q" class="form-control search-bar" placeholder="Search for a game..." value="{{ request.GET.q }}">
-        </div>
-    </div>
-
-    <!-- Search Search Row -->
+    <!-- Search Bar, Dropdowna-->
     <form method="GET" id="search-form" class="row g-3 align-items-center justify-content-center mb-5">
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-8 col-lg-6">
+                <input type="search" name="q" class="form-control search-bar" placeholder="Search for a game..." value="{{ request.GET.q }}">
+            </div>
+        </div>
         <div class="col-md-3 col-lg-2">
             <select name="platform" class="form-select custom-dropdown">
-                <option>All Platforms</option>
-                <option>PlayStation</option>
-                <option>Xbox</option>
-                <option>Nintendo</option>
-                <option>PC</option>
+                <option value="" {% if not platform %}selected{% endif %}>All Platforms</option>
+                <option value="PlayStation" {% if platform == "PlayStation" %}selected{% endif %}>PlayStation</option>
+                <option value="Xbox" {% if platform == "Xbox" %}selected{% endif %}>Xbox</option>
+                <option value="Nintendo" {% if platform == "Nintendo" %}selected{% endif %}>Nintendo</option>
+                <option value="PC" {% if platform == "PC" %}selected{% endif %}>PC</option>
             </select>
         </div>
         <div class="col-md-3 col-lg-2">
