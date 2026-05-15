@@ -99,7 +99,7 @@ body {
 
 /* ============ Search Page Styles ============ */
 
-/* Search Bar*/ 
+/* Search Bar */ 
 .form-control.search-bar {
     background-color: var(--color-accent-1) !important;
     border: 1px solid var(--color-accent-2) !important;
@@ -179,6 +179,11 @@ body {
     font-size: 0.75rem;
 }
 
-/* ============ Page Styles ============ */
+/* ============ Add Game Page Styles ============ */
 
-
+input[disabled] {
+    background: transparent;
+    border: none;
+    color: var(--color-font); /* or whatever fits your theme */
+    padding-left: 0;
+}

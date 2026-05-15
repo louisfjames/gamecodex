@@ -15,3 +15,7 @@ class GameEntryForm(forms.ModelForm):
             "date_started": forms.DateInput(attrs={"type": "date"}),
             "date_completed": forms.DateInput(attrs={"type": "date"}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["title"].disabled = True
