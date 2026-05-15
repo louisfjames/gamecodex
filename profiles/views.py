@@ -16,8 +16,6 @@ def add_game_view(request):
     cover_id = request.GET.get("cover")
     summary = request.GET.get("summary")
 
-
-
     # Covert platform IDs
     platform_ids = [int(pid) for pid in platform_ids.split(",") if pid]
 

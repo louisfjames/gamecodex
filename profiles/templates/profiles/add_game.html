@@ -19,9 +19,20 @@
             </div>
 
             <div class="col-md-8">
+                
+                {% if form.errors %}
+                <div class="alert alert-danger mt-3">
+                    <strong>Form errors:</strong>
+                    {{ form.errors }}
+                    {{ form.non_field_errors }}
+                </div>
+                {% endif %}
+
                 <form method="post" class="form-center">
                     {% csrf_token %}
 
+                    <input type="hidden" name="title" value="{{ form.title.value }}">
+                    
                     <div class="form-row">
                         <label class="form-label fw-bold">Title:</label>
                         {{ form.title }}
