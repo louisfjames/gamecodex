@@ -70,7 +70,7 @@ body {
     border-color: var(--color-hover-2);
 }
 
-/* Dropdowns */
+/* Widgets - including Dropdowns and Date Inputs */
 .custom-dropdown {
     appearance: none; /* removes default arrow */
     padding-right: 2rem; /* space for custom arrow */
@@ -101,6 +101,29 @@ body {
     color: var(--color-font);
 }
 
+.date-input {
+    background: var(--color-accent-1);
+    border: 1px solid var(--color-accent-2);
+    max-width: 250px;
+    color: var(--color-font);
+    border-radius: 10px;
+    padding: 0.35rem 0.75rem;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.date-input:focus {
+    border-color: var(--color-accent-3);
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+    filter: invert(1) opacity(0.8);
+    cursor: pointer;
+}
 
 /* Generic Cards */
 .custom-card {
@@ -112,6 +135,12 @@ body {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
+/* Game Posters */
+.img-rounded {
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+}
 
 /* ============ Search Page Styles ============ */
 
