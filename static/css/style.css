@@ -184,6 +184,6 @@ body {
 input[disabled] {
     background: transparent;
     border: none;
-    color: var(--color-font); /* or whatever fits your theme */
+    color: var(--color-font);
     padding-left: 0;
 }

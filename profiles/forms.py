@@ -2,6 +2,9 @@ from django import forms
 from .models import GameEntry
 
 class GameEntryForm(forms.ModelForm):
+    
+    platform = forms.ChoiceField(choices=(), required=True)
+    
     class Meta:
         model = GameEntry
         fields = [

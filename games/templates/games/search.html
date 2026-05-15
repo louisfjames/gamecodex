@@ -40,6 +40,8 @@
             {% for game in results %}
                 <div class="col-md-3 mb-4">
                     <div class="card h-100 shadow-sm text-center result-card"">
+                        
+                        <pre>{{ game|safe }}</pre>
 
                         <div class="card-body">
                             <h5 class="card-title">{{ game.name }}</h5>
@@ -63,7 +65,7 @@
 
 
                             <!-- Add to Library Button -->
-                            <a href="{% url 'add_game' %}?title={{ game.name|urlencode }}" class="btn custom-btn mt-2">Add to My Library</a>
+                            <a href="{% url 'add_game' %}?title={{ game.name }}&platforms={{ game.platforms|join:',' }}&cover={{ game.cover.image_id }}" class="btn custom-btn mt-2">Add to My Library</a>
 
                         </div>
 
