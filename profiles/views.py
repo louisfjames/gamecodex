@@ -14,6 +14,8 @@ def add_game_view(request):
     title = request.GET.get("title")
     platform_ids = request.GET.get("platforms", "")
     cover_id = request.GET.get("cover")
+    summary = request.GET.get("summary")
+
 
 
     # Covert platform IDs
@@ -43,4 +45,4 @@ def add_game_view(request):
         form = GameEntryForm(initial=initial)
         form.fields["platform"].choices = platform_choices
 
-    return render(request, "profiles/add_game.html", {"form": form, "cover_id": cover_id,})
+    return render(request, "profiles/add_game.html", {"form": form, "cover_id": cover_id, "summary": summary,})

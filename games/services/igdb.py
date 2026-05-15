@@ -55,7 +55,7 @@ def search_games(query, platform=None):
 
         
     # Base APICalypse Query
-    query_string = f'search "{query}"; fields name, cover.image_id, platforms, summary, total_rating, rating;'
+    query_string = (f'search "{query}"; fields name, cover.image_id, platforms, summary, total_rating, rating;')
 
     # Platform filtering
     if platform and platform in PLATFORM_IDS:
