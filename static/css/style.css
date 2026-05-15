@@ -74,9 +74,13 @@ body {
 .custom-dropdown {
     appearance: none; /* removes default arrow */
     padding-right: 2rem; /* space for custom arrow */
+    padding: 0.3rem 1.8rem 0.3rem 0.8rem; /* top, right, bottom, left */
+    text-align: left;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path fill='white' d='M0 0l6 8 6-8z'/></svg>");
     background-size: 11px 7px;
     background-color: var(--color-accent-1);
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
     border: 1px solid var(--color-accent-2);
     color: var(--color-font);
     border-radius: 10px;
@@ -96,6 +100,18 @@ body {
     background-color: var(--color-primary-1);
     color: var(--color-font);
 }
+
+
+/* Generic Cards */
+.custom-card {
+    background: var(--color-accent-1) !important;
+    border: 1px solid var(--color-accent-2) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
 
 /* ============ Search Page Styles ============ */
 

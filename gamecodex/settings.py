@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'core',
     'profiles',
     'games',
+    'widget_tweaks',
 ]
 
 SITE_ID = 1

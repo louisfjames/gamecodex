@@ -1,16 +1,18 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
+
 
 {% block content %}
 <div class="d-flex justify-content-center align-items-center p-5">
-    <div class="glass-card p-4">
+    <div class="p-4">
 
-        <div class="row">
-
-            <div class="pb-5">
-                <h2 class="text-center mb-4">Add Game to Your List</h2>
-            </div>
+        <div class="pb-5">
+            <h2 class="text-center mb-4">Add Game to Your List</h2>
+        </div>
+        
+        <div class="row custom-card p-5">        
             
-            <div class="col-md-4 d-flex justify-content-center align-items-start"> 
+            <div class="col-md-4 d-flex justify-content-center align-items-start "> 
                 {% if cover_id %}
                     <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ cover_id }}.jpg" alt="Game cover" class="img-fluid mb-3">
                 {% endif %}
@@ -21,34 +23,34 @@
                     {% csrf_token %}
 
                     <div class="form-row">
-                        <label class="form-label">Title:</label>
+                        <label class="form-label fw-bold">Title:</label>
                         {{ form.title }}
                     </div>
 
-                    <div class="form-row">
-                        <label class="form-label">Platform:</label>
-                        {{ form.platform }}
+                    <div class="form-row pb-3">
+                        <label class="form-label fw-bold">Platform:</label>
+                        {{ form.platform|add_class:"custom-dropdown" }}
                     </div>
 
                     {% if summary %}
-                        <div class="form-row pb-4">
-                            <label class="form-label">Description:</label>
+                        <div class="form-row pb-4 ">
+                            <label class="form-label fw-bold">Description:</label>
                             {{ summary }}
                         </div>
                     {% endif %}
 
-                    <div class="form-row">
-                        <label class="form-label">Status:</label>
-                        {{ form.status }}
+                    <div class="form-row pb-3">
+                        <label class="form-label fw-bold">Status:</label>
+                        {{ form.status|add_class:"custom-dropdown" }}
                     </div>
 
                     <div class="form-row">
-                        <label class="form-label">Date started:</label>
+                        <label class="form-label fw-bold">Date started:</label>
                         {{ form.date_started }}
                     </div>
 
                     <div class="form-row">
-                        <label class="form-label">Date completed:</label>
+                        <label class="form-label fw-bold">Date completed:</label>
                         {{ form.date_completed }}
                     </div>
 
