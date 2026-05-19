@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import GameEntryForm
+from .models import GameEntry
 from games.services.igdb import PLATFORM_LOOKUP
 from django.contrib import messages
 
@@ -14,7 +15,7 @@ def add_game_view(request):
     # Read values passed from search page
     title = request.GET.get("title")
     platform_ids = request.GET.get("platforms", "")
-    cover_id = request.GET.get("cover")
+    cover_id = request.GET.get("cover") or request.POST.get("cover_id")
     summary = request.GET.get("summary")
 
     # Covert platform IDs
@@ -38,6 +39,7 @@ def add_game_view(request):
         if form.is_valid():
             entry = form.save(commit=False)
             entry.user = request.user
+            entry.cover_id = cover_id
             entry.save()
             
             # Success message displayed on profile page

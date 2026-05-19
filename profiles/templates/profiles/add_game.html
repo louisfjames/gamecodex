@@ -36,9 +36,11 @@
 
                 <form method="post" class="form-center">
                     {% csrf_token %}
-
-                    <input type="hidden" name="title" value="{{ form.title.value }}">
                     
+                    <!-- Hidden fields to carry into POST -->
+                    <input type="hidden" name="cover_id" value="{{ cover_id }}">
+                    <input type="hidden" name="title" value="{{ form.title.value }}">
+                   
                     <div class="form-row pb-3">
                         <label class="form-label fw-bold">Title:</label>
                         <span class="text-light">{{ form.title.value }}</span>

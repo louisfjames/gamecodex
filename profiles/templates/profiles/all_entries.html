@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>{{ user.username }}'s All Games List</h2>
+        <a href="{% url 'profile' %}" class="text-decoration-none">Go back to profile</a>
+    </div>
+
+    <!-- Stats row (same as profile page) -->
+    <div class="row row-cols-2 row-cols-md-4 text-center mb-4 g-3">
+        <div class="col">
+            <span class="fw-bold">Currently Playing:</span> X
+        </div>
+        <div class="col">
+            <span class="fw-bold">Games Completed:</span> X
+        </div>
+        <div class="col">
+            <span class="fw-bold">Gaming Backlog:</span> X
+        </div>
+        <div class="col">
+            <span class="fw-bold">Games Abandoned:</span> X
+        </div>
+    </div>
+
+    <!-- Game cards -->
+    {% if entries %}
+        <div class="d-flex flex-column gap-4">
+            {% for entry in entries %}
+                <div class="custom-card p-3 d-flex align-items-start justify-content-between">
+                    <!-- Left side: cover + details -->
+                    <div class="d-flex align-items-start">
+                        <div class="me-3">
+                            {% if entry.cover_id %}
+                                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg"
+                                    alt="{{ entry.title }} cover"
+                                    class="img-fluid rounded" style="max-width: 120px;">
+                            {% else %}
+                                <div class="placeholder-box bg-secondary text-light d-flex justify-content-center align-items-center"
+                                    style="width:120px; height:160px;">No Image</div>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <h5 class="fw-bold">{{ entry.title }}</h5>
+                            <p><strong>Platform:</strong> {{ entry.platform }}</p>
+                            <p><strong>Date added:</strong> {{ entry.date_added|date:"d/m/Y" }}</p>
+                            <p><strong>Status:</strong> {{ entry.get_status_display }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Right side: action links -->
+                    <div class="text-end">
+                        <a href="#" class="btn btn-outline-primary btn-sm me-2">Edit Entry</a>
+                        <a href="#" class="btn btn-outline-danger btn-sm">Remove Entry</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center mt-5">No entries yet.</p>
+    {% endif %}
+
+
+</div>
+{% endblock %}

@@ -13,6 +13,7 @@ class GameEntry(models.Model):
     title = models.CharField(max_length=200)
     platform = models.CharField(max_length=100, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    cover_id = models.CharField(max_length=50, blank=True, null=True)
 
     date_added = models.DateField(auto_now_add=True)
     date_started = models.DateField(null=True, blank=True)
