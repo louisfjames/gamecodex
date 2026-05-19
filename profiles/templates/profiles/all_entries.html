@@ -47,6 +47,20 @@
                             <p><strong>Platform:</strong> {{ entry.platform_name }}</p>
                             <p><strong>Date added:</strong> {{ entry.date_added|date:"d/m/Y" }}</p>
                             <p><strong>Status:</strong> {{ entry.get_status_display }}</p>
+                            <p><strong>Date started:</strong>
+                                {% if entry.date_started %}
+                                    {{ entry.date_started|date:"d/m/Y" }}
+                                {% else %}
+                                    —
+                                {% endif %}
+                            </p>
+                            <p><strong>Date completed:</strong>
+                                {% if entry.date_completed %}
+                                    {{ entry.date_completed|date:"d/m/Y" }}
+                                {% else %}
+                                    —
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
 
