@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import GameEntryForm
 from games.services.igdb import PLATFORM_LOOKUP
+from django.contrib import messages
 
 @login_required
 def profile_view(request):
@@ -38,6 +39,11 @@ def add_game_view(request):
             entry = form.save(commit=False)
             entry.user = request.user
             entry.save()
+            
+            # Success message displayed on profile page
+            list_name = entry.status.capitalize()
+            messages.success(request, f"'{entry.title}' has been added to your {list_name} list!")
+
             return redirect("profile")
     else:
         form = GameEntryForm(initial=initial)

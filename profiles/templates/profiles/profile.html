@@ -10,6 +10,17 @@
             </div>
         </div>
 
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == "success" %}
+                    <div class="alert alert-success mt-3">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+
         <div class="row row-cols-2 row-cols-md-4 text-center mb-4 g-3">
             <div class="col">
                 <span class="fw-bold">Currently Playing:</span> X
