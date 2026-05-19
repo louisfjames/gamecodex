@@ -37,6 +37,15 @@ def add_game_view(request):
         form.fields["platform"].choices = platform_choices
 
         if form.is_valid():
+            
+            # Duplicate check 
+            duplicate_exists = GameEntry.objects.filter(user=request.user, title=form.cleaned_data["title"], platform=form.cleaned_data["platform"]).exists()
+
+            if duplicate_exists:
+                form.add_error(None, "You've already added this game to your list.")
+                return render(request, "profiles/add_game.html", {"form": form, "cover_id": cover_id, "summary": summary})
+
+            # Save new entry
             entry = form.save(commit=False)
             entry.user = request.user
             entry.cover_id = cover_id
