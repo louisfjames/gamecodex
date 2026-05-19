@@ -50,3 +50,8 @@ def add_game_view(request):
         form.fields["platform"].choices = platform_choices
 
     return render(request, "profiles/add_game.html", {"form": form, "cover_id": cover_id, "summary": summary,})
+
+@login_required
+def all_entries_view(request):
+    entries = GameEntry.objects.filter(user=request.user).order_by("-date_started")
+    return render(request, "profiles/all_entries.html", {"entries": entries})
