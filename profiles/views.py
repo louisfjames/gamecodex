@@ -56,4 +56,14 @@ def add_game_view(request):
 @login_required
 def all_entries_view(request):
     entries = GameEntry.objects.filter(user=request.user).order_by("-date_added", "status")
+
+    # Attach readable platform names
+    for entry in entries:
+        if entry.platform and entry.platform.isdigit():
+            entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
+        else:
+            entry.platform_name = entry.platform
+
     return render(request, "profiles/all_entries.html", {"entries": entries})
+
+    
