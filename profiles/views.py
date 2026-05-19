@@ -55,5 +55,5 @@ def add_game_view(request):
 
 @login_required
 def all_entries_view(request):
-    entries = GameEntry.objects.filter(user=request.user).order_by("-date_started")
+    entries = GameEntry.objects.filter(user=request.user).order_by("-date_added", "status")
     return render(request, "profiles/all_entries.html", {"entries": entries})
