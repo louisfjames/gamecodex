@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import GameEntryForm
 from .models import GameEntry
 from games.services.igdb import PLATFORM_LOOKUP
 from django.contrib import messages
+from django.views.decorators.http import require_POST
 
 @login_required
 def profile_view(request):
@@ -76,3 +77,9 @@ def all_entries_view(request):
     return render(request, "profiles/all_entries.html", {"entries": entries})
 
     
+@require_POST
+def remove_entry(request, entry_id):
+    entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
+    entry.delete()
+    messages.success(request, "Game entry removed successfully.")
+    return redirect('all_entries')
