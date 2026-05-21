@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container py-5">
@@ -99,6 +100,8 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<script src="{% static 'js/remove_entry_modal.js' %}"></script>
+
 {% endblock %}
