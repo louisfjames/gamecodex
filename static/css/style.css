@@ -232,3 +232,28 @@ input[disabled] {
     color: var(--color-font);
     padding-left: 0;
 }
+
+
+/* ============ Media Queries ============ */
+
+/* Tablet screens */
+
+
+/* Mobile screens */
+@media (max-width: 767.98px) {
+  .custom-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .custom-card .text-end {
+    margin-top: 1rem;
+    text-align: center !important;
+    width: 100%;
+  }
+
+  .custom-card .btn {
+    margin: 0.25rem;
+  }
+}

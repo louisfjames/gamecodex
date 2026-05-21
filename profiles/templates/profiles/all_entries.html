@@ -22,7 +22,7 @@
 
 
     <!-- Stats row (same as profile page) -->
-    <div class="row row-cols-2 row-cols-md-4 text-center mb-4 g-3">
+    <div class="row row-cols-2 row-cols-md-4 text-center mb-4 g-3 pb-4">
         <div class="col">
             <span class="fw-bold">Currently Playing:</span> X
         </div>
@@ -39,52 +39,54 @@
 
     <!-- Game cards -->
     {% if entries %}
-        <div class="d-flex flex-column gap-4">
-            {% for entry in entries %}
-                <div class="custom-card p-3 d-flex align-items-start justify-content-between">
-                    <!-- Left side: cover + details -->
-                    <div class="d-flex align-items-start">
-                        <div class="me-3">
-                            {% if entry.cover_id %}
-                                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg"
-                                    alt="{{ entry.title }} cover"
-                                    class="img-fluid rounded" style="max-width: 120px;">
-                            {% else %}
-                                <div class="placeholder-box bg-secondary text-light d-flex justify-content-center align-items-center"
-                                    style="width:120px; height:160px;">No Image</div>
-                            {% endif %}
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 px-4">
+            <div class="d-flex flex-column gap-4">
+                {% for entry in entries %}
+                    <div class="custom-card p-3 d-flex align-items-start justify-content-between">
+                        <!-- Left side: cover + details -->
+                        <div class="d-flex align-items-center ">
+                            <div class="me-3">
+                                {% if entry.cover_id %}
+                                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }} cover" class="img-fluid rounded" style="max-width: 120px;">
+                                {% else %}
+                                    <div class="placeholder-box bg-secondary text-light d-flex justify-content-center align-items-center" style="width:120px; height:160px;">No Image</div>
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                <h5 class="fw-bold">{{ entry.title }}</h5>
+                                <p class="mb-1"><strong>Platform:</strong> {{ entry.platform_name }}</p>
+                                <p class="mb-1"><strong>Date added:</strong> {{ entry.date_added|date:"d/m/Y" }}</p>
+                                <p class="mb-1"><strong>Status:</strong> {{ entry.get_status_display }}</p>
+                                <p class="mb-1"><strong>Date started:</strong>
+                                    {% if entry.date_started %}
+                                        {{ entry.date_started|date:"d/m/Y" }}
+                                    {% else %}
+                                        —
+                                    {% endif %}
+                                </p>
+                                <p><strong>Date completed:</strong>
+                                    {% if entry.date_completed %}
+                                        {{ entry.date_completed|date:"d/m/Y" }}
+                                    {% else %}
+                                        —
+                                    {% endif %}
+                                </p>
+                            </div>
                         </div>
 
-                        <div>
-                            <h5 class="fw-bold">{{ entry.title }}</h5>
-                            <p><strong>Platform:</strong> {{ entry.platform_name }}</p>
-                            <p><strong>Date added:</strong> {{ entry.date_added|date:"d/m/Y" }}</p>
-                            <p><strong>Status:</strong> {{ entry.get_status_display }}</p>
-                            <p><strong>Date started:</strong>
-                                {% if entry.date_started %}
-                                    {{ entry.date_started|date:"d/m/Y" }}
-                                {% else %}
-                                    —
-                                {% endif %}
-                            </p>
-                            <p><strong>Date completed:</strong>
-                                {% if entry.date_completed %}
-                                    {{ entry.date_completed|date:"d/m/Y" }}
-                                {% else %}
-                                    —
-                                {% endif %}
-                            </p>
+                        <!-- Right side: action links -->
+                        <div class="text-end">
+                            <a href="#" class="btn btn-outline-primary btn-sm me-2">Edit Entry</a>
+                            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeEntryModal" data-entry-url="{% url 'remove_entry' entry.id %}">Remove Entry</button>
                         </div>
                     </div>
-
-                    <!-- Right side: action links -->
-                    <div class="text-end">
-                        <a href="#" class="btn btn-outline-primary btn-sm me-2">Edit Entry</a>
-                        <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeEntryModal" data-entry-url="{% url 'remove_entry' entry.id %}">Remove Entry</button>
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
+    </div>    
+        
 
     <!-- If there are no entries -->
     {% else %}
