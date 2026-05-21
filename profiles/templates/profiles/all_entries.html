@@ -9,6 +9,18 @@
         <a href="{% url 'profile' %}" class="text-decoration-none">Go back to profile</a>
     </div>
 
+    <!-- Confirmation message -->
+    {% if messages %}
+    <div class="mb-4">
+        {% for message in messages %}
+        <div class="alert alert-success text-center" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
     <!-- Stats row (same as profile page) -->
     <div class="row row-cols-2 row-cols-md-4 text-center mb-4 g-3">
         <div class="col">

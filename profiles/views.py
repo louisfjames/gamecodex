@@ -80,6 +80,7 @@ def all_entries_view(request):
 @require_POST
 def remove_entry(request, entry_id):
     entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
+    title = entry.title
     entry.delete()
-    messages.success(request, "Game entry removed successfully.")
+    messages.success(request, f"'{title}' has been removed from your profile.")
     return redirect('all_entries')
