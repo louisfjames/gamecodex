@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block content %}
-<div class="container py-5">
+<section class="text-center my-5">
+<div class="container mt-4">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>{{ user.username }}'s All Games List</h2>
-        <a href="{% url 'profile' %}" class="text-decoration-none">Back to Profile</a>
+        <a href="{% url 'profile' %}">Back to Profile</a>
     </div>
 
     <!-- Confirmation message -->
@@ -134,4 +135,5 @@
 
 <script src="{% static 'js/remove_entry_modal.js' %}"></script>
 
+</section>
 {% endblock %}
