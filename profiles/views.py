@@ -75,7 +75,7 @@ def all_entries_view(request):
     if status:
         entries = entries.filter(status=status)
 
-    # Keep your existing ordering
+    # Ordering by date added
     entries = entries.order_by("-date_added", "status")
 
     # Attach readable platform names
