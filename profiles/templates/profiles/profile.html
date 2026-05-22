@@ -12,9 +12,11 @@
         {% if messages %}
             {% for message in messages %}
                 {% if message.tags == "success" %}
-                    <div class="alert alert-success mt-3">
-                        {{ message }}
-                    </div>
+                    {% if "signed" not in message %}
+                        <div class="alert alert-success mt-3">
+                            {{ message }}
+                        </div>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         {% endif %}
