@@ -65,7 +65,18 @@ def add_game_view(request):
 
 @login_required
 def all_entries_view(request):
-    entries = GameEntry.objects.filter(user=request.user).order_by("-date_added", "status")
+    # Read status from the URL
+    status = request.GET.get("status")
+
+    # Base queryset
+    entries = GameEntry.objects.filter(user=request.user)
+
+    # Apply filter only if a status was selected
+    if status:
+        entries = entries.filter(status=status)
+
+    # Keep your existing ordering
+    entries = entries.order_by("-date_added", "status")
 
     # Attach readable platform names
     for entry in entries:
@@ -74,7 +85,10 @@ def all_entries_view(request):
         else:
             entry.platform_name = entry.platform
 
-    return render(request, "profiles/all_entries.html", {"entries": entries})
+    # Get status choices from the model
+    status_choices = GameEntry._meta.get_field("status").choices
+
+    return render(request, "profiles/all_entries.html", {"entries": entries, "status_choices": status_choices, "current_status": status,})
 
     
 @require_POST
