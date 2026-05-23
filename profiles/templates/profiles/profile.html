@@ -19,7 +19,6 @@
             {% endfor %}
         {% endif %}
 
-
         <div class="row row-cols-2 row-cols-md-4 text-center mb-4 g-3">
             <div class="col">
                 <span class="fw-bold">Currently Playing:</span> X
@@ -36,4 +35,39 @@
         </div>
     </div>
 </section>
+
+<section>
+    <div class="container mt-4">
+    <!-- Currently Playing Section -->
+        <div class="profile-section">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="mb-0">Currently Playing</h2>
+                <a href="{% url 'all_entries' %}?status=playing" class="text-decoration-none text-primary">See Full List / Edit List</a>
+            </div>
+            <!-- 3 column grid -->
+            <div class="row">
+                {% for entry in currently_playing_entries %}
+                    <div class="col-md-4 mb-4">
+                        <!-- Latest 3 games from the list -->
+                        <div class="result-card p-3">
+                            {% if entry.cover_id %}
+                                <div class="poster-wrapper pb-2">
+                                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
+                                </div>
+                            {% endif %}
+                            <div class="card-body text-white align-items-center">
+                                <h3 class="card-title">{{ entry.title }}</h3>
+                                <p class="small mb-0">Added: {{ entry.date_added|date:"d M Y" }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-muted">No games in this list yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

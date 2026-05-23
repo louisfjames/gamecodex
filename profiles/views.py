@@ -20,23 +20,16 @@ def profile_view(request):
     The entries are ordered by date_added (newest first) and passed to the template so the profile page can show a quick snapshot of the user's most recent activity in each list.
     """
     user = request.user
+    
     entries = GameEntry.objects.filter(user=user)
 
-    currently_playing_entries = entries.filter(
-        status="currently_playing"
-    ).order_by("-date_added")[:3]
+    currently_playing_entries = entries.filter(status="playing").order_by("-date_added")[:3]
 
-    completed_entries = entries.filter(
-        status="completed"
-    ).order_by("-date_added")[:3]
+    completed_entries = entries.filter(status="completed").order_by("-date_added")[:3]
 
-    backlog_entries = entries.filter(
-        status="backlog"
-    ).order_by("-date_added")[:3]
+    backlog_entries = entries.filter(status="backlog").order_by("-date_added")[:3]
 
-    abandoned_entries = entries.filter(
-        status="abandoned"
-    ).order_by("-date_added")[:3]
+    abandoned_entries = entries.filter(status="abandoned").order_by("-date_added")[:3]
 
     context = {
         "currently_playing_entries": currently_playing_entries,
