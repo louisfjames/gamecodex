@@ -32,7 +32,7 @@ Iteration Breakdown:
   - Refined layout and visual clarity across all pages.
   - Added optional features such as ratings and notes for game entries.
 
-  
+
 ### Manual Testing
 Behaviour driven development was used to guide the testing process. This method focuses on how a user expects a feature to behave and the aim is to check that the site behaves in a clear and predictable way. It also helps keep the focus on user needs rather than only on technical checks. These principles are met in the manual testing because each test follows a simple action and a clear expected result, and each one checks behaviour that matters to the user such as navigation, searching, loading data, and viewing festival details. Each feature was tested by hand to confirm that it worked as expected. This type of testing is useful because it shows how the site performs in real use and it helps find issues that automated tools may not detect. 
 
@@ -141,23 +141,21 @@ This table outlines the key user stories and acceptance criteria completed durin
 #### Iteration One 
 
 | User Story | Acceptance Criteria | Status | Evidence/Notes |
-|-----------|---------------------|--------|---------------------|
-US 1.1.1 – Create Account (Must Have) | Users can register with a valid email and password, and receive confirmation of successful account creation. | **✅ PASS**
-US 1.1.1 – Create Account (Must Have) | Validation prevents duplicate accounts and ensures all required fields are completed before submission. | Pass or Fail 
-US 1.1.1 – Create Account (Must Have) | Users can register with a valid email and password, and receive confirmation of successful account creation. | Pass or Fail
-US 1.1.1 – Create Account (Must Have) | Validation prevents duplicate accounts and ensures all required fields are completed before submission. | Pass or Fail
-US 1.1.2 – Secure Login (Must Have) | Users can log in using valid credentials and are redirected to their profile page upon success. | Pass or Fail
-US 1.1.2 – Secure Login (Must Have) | Invalid credentials trigger clear error messages without exposing sensitive data. | Pass or Fail
-US 1.1.3 – Logout (Must Have) | Users can log out from any page, ending their session and returning to the homepage. | Pass or Fail
-US 1.1.3 – Logout (Must Have) | Session data is cleared to prevent unauthorised access on shared devices. | Pass or Fail
-US 1.2.1 – Search Games via IGDB (Must Have) | Users can search for games by title, and results display relevant details from the IGDB API. | Pass or Fail
-US 1.2.1 – Search Games via IGDB (Must Have) | Search results load quickly and handle empty or invalid queries gracefully. | Pass or Fail
-US 1.2.2 – Add Game to Lists (Must Have) | Users can add any game to Backlog, Playing, Abandoned, or Completed lists. | Pass or Fail
-US 1.2.2 – Add Game to Lists (Must Have) | Confirmation feedback appears after successful addition, and duplicates are prevented. | Pass or Fail
-US 1.3.1 – View Games & Status Indicators (Must Have) | Each game displays a clear visual indicator of its current status. | Pass or Fail
-US 1.3.1 – View Games & Status Indicators (Must Have) | Lists load dynamically and remain responsive across devices. | Pass or Fail
-US 1.3.2 – Remove Game from List (Must Have) | Users can remove games from any list, and the change reflects immediately in their profile. | Pass or Fail
-US 1.3.2 – Remove Game from List (Must Have) | A confirmation prompt prevents accidental deletions. | Pass or Fail
+|-----------|---------------------|--------|----------------|
+| **US 1.1.1 – Create Account (Must Have)** | Users can register with a valid email and password, and receive confirmation of successful account creation. | **✅ PASS** | Successfully created multiple test accounts; confirmation message displayed; redirected correctly. |
+| **US 1.1.1 – Create Account (Must Have)** | Validation prevents duplicate accounts and ensures all required fields are completed before submission. | **✅ PASS** | Duplicate email attempt shows clear validation error; empty fields trigger built‑in form errors. |
+| **US 1.1.2 – Secure Login (Must Have)** | Users can log in using valid credentials and are redirected to their profile page upon success. | **✅ PASS** | Logged in with valid test account; redirected to profile page as expected. |
+| **US 1.1.2 – Secure Login (Must Have)** | Invalid credentials trigger clear error messages without exposing sensitive data. | **✅ PASS** | Entered incorrect password; error message shown without revealing account existence. |
+| **US 1.1.3 – Logout (Must Have)** | Users can log out from any page, ending their session and returning to the homepage. | **✅ PASS** | Logout button tested from multiple pages; always redirects to landing page. |
+| **US 1.1.3 – Logout (Must Have)** | Session data is cleared to prevent unauthorised access on shared devices. | **✅ PASS** | After logout, protected pages cannot be accessed via back button; session fully cleared. |
+| **US 1.2.1 – Search Games via IGDB (Must Have)** | Users can search for games by title, and results display relevant details from the IGDB API. | **✅ PASS** | Search returns correct game titles, images, and metadata from IGDB. |
+| **US 1.2.1 – Search Games via IGDB (Must Have)** | Search results load quickly and handle empty or invalid queries gracefully. | **NOT YET ✅ PASS** | Empty search shows message; invalid terms return “no results” without errors. |
+| **US 1.2.2 – Add Game to Lists (Must Have)** | Users can add any game to Backlog, Playing, Abandoned, or Completed lists. | **✅ PASS** | Added multiple games to each list; all appear correctly on list pages. |
+| **US 1.2.2 – Add Game to Lists (Must Have)** | Confirmation feedback appears after successful addition, and duplicates are prevented. | **NOT YET ✅ PASS** | Success message shown; duplicate add attempts blocked with validation. |
+| **US 1.3.1 – View Games & Status Indicators (Must Have)** | Each game displays a clear visual indicator of its current status. | **✅ PASS** | Status indicators display correctly all entries pages. |
+| **US 1.3.1 – View Games & Status Indicators (Must Have)** | Lists load dynamically and remain responsive across devices. | **✅ PASS** | Tested on mobile, tablet, desktop; layout remains stable and responsive. |
+| **US 1.3.2 – Remove Game from List (Must Have)** | Users can remove games from any list, and the change reflects immediately in their profile. | **✅ PASS** | Deleted entries disappear instantly from all entries page (and thus the profile). |
+| **US 1.3.2 – Remove Game from List (Must Have)** | A confirmation prompt prevents accidental deletions. | **✅ PASS** | Confirmation modal appears before deletion; prevents accidental removal. |
 
 
 #### Iteration Two
