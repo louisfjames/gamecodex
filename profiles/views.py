@@ -54,7 +54,7 @@ def add_game_view(request):
             
             # Success message displayed on profile page
             list_name = entry.status.capitalize()
-            messages.success(request, f"'{entry.title}' has been added to your {list_name} list!")
+            messages.success(request, f"'{entry.title}' has been added to your {list_name} list!", extra_tags="game")
 
             return redirect("profile")
     else:
