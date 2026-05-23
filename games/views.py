@@ -6,7 +6,7 @@ def search_view(request):
     platform = request.GET.get("platform")
 
     response = {"error": None, "results": []}
-    if query:
+    if request.GET:
         response = search_games(query, platform=platform)
 
         for g in response["results"]:

@@ -52,7 +52,6 @@ def search_games(query, platform=None):
     # Credential Validation
     if not CLIENT_ID or not ACCESS_TOKEN:
         return {"error": "IGDB credentials missing.", "results": []}
-
         
     # Base APICalypse Query
     query_string = (f'search "{query}"; fields name, cover.image_id, platforms, summary, total_rating, rating;')
