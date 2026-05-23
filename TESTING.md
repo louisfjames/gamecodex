@@ -1,33 +1,128 @@
 # GameCodex - Testing Documentation
 
-This document summarises all testing completed throughout development. OUTLINE ITERATIONS?
-
 ## Table of Contents
 
-1. [Manual Testing](#manual-testing)
-2. [Automated Testing](#automated-testing)
-3. [Acceptance Criteria Testing](#acceptance-criteria-testing)
-4. [HTML Validator](#html-validator)
-5. [CSS Validator](#css-validator)
-6. [JavaScript Validator](#javascript-validator)
+1. [Testing Approach](#testing-approach)
+2. [Manual Testing](#manual-testing)
+3. [Automated Testing](#automated-testing)
+4. [Acceptance Criteria Testing](#acceptance-criteria-testing)
+5. [HTML Validator](#html-validator)
+6. [CSS Validator](#css-validator)
+7. [JavaScript Validator](#javascript-validator)
 8. [Python Testing](#python-testing)
-7. [Google Chrome Lighthouse](#google-chrome-lighthouse)
-8. [Bug Fixes](#bug-fixes)
+9. [Google Chrome Lighthouse](#google-chrome-lighthouse)
+10. [Bug Fixes](#bug-fixes)
 
+### Testing Approach
+This document summarises all testing completed throughout development. Testing was carried out continuously throughout development and structured manual testing completed at the end of each iteration. Following Agile principles, each iteration delivered a meaningful slice of functionality aligned with the project’s themes and user stories. The project was organised into three major themes, each representing a focused stage of development. These themes guided the scope of each iteration and ensured that testing aligned directly with user needs and functional priorities.
 
+Iteration Breakdown:
+- **Iteration 1 – Core Platform Foundations**
+  - Implemented user accounts, including signup, login, and logout.
+  - Added IGDB-powered game search and the ability to add games to user lists.
+  - Built the initial game library display with status indicators.
+  - Added the ability to remove games from lists.
+- **Iteration 2 – Personalisation & List Management**
+  - Added profile page sections showing the three most recent games from each list.
+  - Implemented moving games between Backlog, Playing, Abandoned, and Completed.
+  - Created dedicated pages for full list history.
+  - Added optional list statistics to the profile page.
+- **Iteration 3 – Final Polish & Enhanced Customisation**
+  - Improved UI/UX with clearer loading states and error messages.
+  - Refined layout and visual clarity across all pages.
+  - Added optional features such as ratings and notes for game entries.
+
+  
 ### Manual Testing
 Behaviour driven development was used to guide the testing process. This method focuses on how a user expects a feature to behave and the aim is to check that the site behaves in a clear and predictable way. It also helps keep the focus on user needs rather than only on technical checks. These principles are met in the manual testing because each test follows a simple action and a clear expected result, and each one checks behaviour that matters to the user such as navigation, searching, loading data, and viewing festival details. Each feature was tested by hand to confirm that it worked as expected. This type of testing is useful because it shows how the site performs in real use and it helps find issues that automated tools may not detect. 
 
+Manual testing was carried out at the end of each iteration to ensure that newly implemented features were functioning correctly before moving forward. Following Agile principles, each iteration delivered a small but complete slice of functionality, which was then manually tested for correctness, usability, and stability. This approach ensured that issues were identified early, user flows remained coherent, and the platform evolved in a controlled, reliable way.
 
-#### Iteration One 
+#### Iteration One - Navigation and Layout
+
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| Header links | Each link loads the correct page | Clicked each link | All links load the correct pages | **✔ PASS** or FAIL |
+| Header links | Each link loads the correct page | Clicked all header links | All links load correct pages | **✅ PASS** |
+| Logo link | Returns user to landing page | Clicked logo | Landing page loads | **✅ PASS** |
+| Profile navigation | Profile link loads user profile | Clicked “Profile” | Profile page loads correctly | **✅ PASS** |
+| All Entries link | Loads full game list | Clicked link | All Entries page loads | **✅ PASS** |
+| Back to Profile link | Returns user to profile | Clicked link | Profile page loads | **✅ PASS** |
+| Footer links | Footer links open correct pages | Clicked each link | All links open correct pages | **✅ PASS** |
+| Desktop layout | Layout stable on large screens | Tested on desktop | No layout issues | **✅ PASS** |
+| Tablet layout | Layout adapts correctly | Tested at 768–991px | Minor spacing adjustments needed | **✅ PASS - FIXED SEE COMMIT a84fa99** |
+| Mobile layout | Layout adapts to small screens | Tested at <768px | Layout clean and readable | **✅ PASS** |
+
+#### Iteration One - User Authentication (Signup, Login, Logout)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Signup form | Creates new user | Submitted valid signup | Account created successfully | **✅ PASS** |
+| Signup validation | Shows errors for invalid input | Submitted empty/invalid fields | Clear validation errors shown | **✅ PASS** |
+| Login form | Logs user in | Entered valid credentials | User logged in | **✅ PASS** |
+| Incorrect login | Shows error message | Entered wrong password | Error message shown | **✅ PASS** |
+| Logout | Logs user out | Clicked logout | User logged out | **✅ PASS** |
+| Unwanted login messages | Login/logout messages hidden | Logged in/out repeatedly | “Signed in/out” messages no longer appear | **✅ PASS** |
+
+#### Iteration One - Profile Page
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Username display | Shows logged‑in user’s name | Loaded profile page | Username displays correctly | **✅ PASS** |
+| View/Edit All Entries link | Navigates to full list | Clicked link | All Entries page loads | **✅ PASS** |
+| Success messages | Only relevant messages appear | Triggered actions | Only game‑related messages shown | **✅ PASS** |
+| Layout | Profile content displays correctly | Checked on all devices | Layout stable | **✅ PASS** |
+
+#### Iteration One - Game Entry Management (CRUD)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Add Entry form | Creates new game entry | Submitted valid form | Entry created and visible | **✅ PASS** |
+| Add Entry validation | Shows errors for invalid input | Submitted empty fields | Validation errors shown | **✅ PASS** |
+| Delete Entry | Removes entry | Clicked delete | Entry removed from list | **✅ PASS** |
+| Entry ownership | Users only see their own entries | Logged in as two users | Entries isolated per user | **✅ PASS** |
+| Button layout | Buttons align correctly | Tested on tablet/mobile | Tablet spacing needed refinement | **✅ PASS - FIXED SEE COMMIT ac2815** |
+
+#### Iteration One - All Entries Page
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Entry list loads | Shows all user entries | Loaded page | All entries appear | **✅ PASS** |
+| Card layout | Cards display correctly | Checked cards | Layout clean and readable | **✅ PASS** |
+| Delete buttons | Buttons work correctly | Clicked each | Correct pages/actions triggered | **✅ PASS** |
+| Responsive layout | Cards adapt to screen size | Tested on multiple devices | Tablet layout needs small fix | **✅ PASS** |
+
+#### Iteration One - Search Page
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Search input | Returns matching games | Searched for known title | Correct results shown | **✅ PASS** |
+| Empty search | Shows message | Submitted empty search | Clear message shown | **✅ PASS** |
+| No results | Shows “no results” message | Searched for nonsense | Message shown | **✅ PASS** |
+| Special characters | Handles unusual input | Entered symbols | No errors | **✅ PASS** |
+| Layout | Results display correctly | Checked on all devices | Layout stable | **✅ PASS** |
+
+#### Iteration One - Error Handling
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| 404 page | Custom 404 appears | Entered invalid URL | 404 page loads | **Not yet implemented - priority for iteration 2** |
+| Permission errors | Users can’t access others’ data | Tried accessing another user’s entry | Redirected or blocked | **✅ PASS** |
+| Form errors | Validation messages appear | Submitted invalid forms | Clear errors shown | **✅ PASS** |
+
+#### Iteration One - Performance and Responsiveness
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Page load speed | Pages load quickly | Tested across pages | All pages load fast | **✅ PASS** |
+| Mobile responsiveness | Layout adapts to small screens | Tested on mobile | No overlap or scroll | **✅ PASS** |
+| Tablet responsiveness | Layout adapts to medium screens | Tested on tablet | Minor spacing issues | **✅ PASS** |
+| No horizontal scroll | No sideways scrolling | Tested on mobile/tablet | No scroll present | **✅ PASS** |
+
 
 #### Iteration Two 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| x | x | x| x | **✔ PASS** or FAIL |
+| Edit Entry | Updates existing entry | Edited a game | Changes saved correctly | **✅ PASS** |
 
 #### Iteration Three 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -45,9 +140,9 @@ This table outlines the key user stories and acceptance criteria completed durin
 
 #### Iteration One 
 
-| User Story | Acceptance Criteria | Status |
-|-----------|---------------------|--------|
-US 1.1.1 – Create Account (Must Have) | Users can register with a valid email and password, and receive confirmation of successful account creation. | Pass or Fail
+| User Story | Acceptance Criteria | Status | Evidence/Notes |
+|-----------|---------------------|--------|---------------------|
+US 1.1.1 – Create Account (Must Have) | Users can register with a valid email and password, and receive confirmation of successful account creation. | **✅ PASS**
 US 1.1.1 – Create Account (Must Have) | Validation prevents duplicate accounts and ensures all required fields are completed before submission. | Pass or Fail 
 US 1.1.1 – Create Account (Must Have) | Users can register with a valid email and password, and receive confirmation of successful account creation. | Pass or Fail
 US 1.1.1 – Create Account (Must Have) | Validation prevents duplicate accounts and ensures all required fields are completed before submission. | Pass or Fail
