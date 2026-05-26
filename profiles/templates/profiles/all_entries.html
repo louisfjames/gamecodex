@@ -7,7 +7,7 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>{{ user.username }}'s All Games List</h2>
-        <a href="{% url 'profile' %}">Back to Profile</a>
+        <a href="{% url 'profile' %}" class="btn custom-btn">Back to Profile</a>
     </div>
 
     <!-- Confirmation message -->
@@ -41,9 +41,9 @@
     <!-- Filtering by status -->
     <div class="d-flex justify-content-end mb-3 pb-4">
         <form method="get" class="d-flex align-items-center gap-2">
-            <label for="status">Filter by status:</label>
+            <label for="status">Filter by Status:</label>
             <select name="status" id="status" class="custom-dropdown" onchange="this.form.submit();">
-                <option value="">All entries</option>
+                <option value="">All Games</option>
                 {% for value, label in status_choices %}
                 <option value="{{ value }}" {% if current_status == value %}selected{% endif %}>
                     {{ label }}
@@ -80,14 +80,14 @@
                                     {% if entry.date_started %}
                                         {{ entry.date_started|date:"d/m/Y" }}
                                     {% else %}
-                                        —
+                                        -
                                     {% endif %}
                                 </p>
                                 <p><strong>Date completed:</strong>
                                     {% if entry.date_completed %}
                                         {{ entry.date_completed|date:"d/m/Y" }}
                                     {% else %}
-                                        —
+                                        -
                                     {% endif %}
                                 </p>
                             </div>
@@ -95,8 +95,8 @@
 
                         <!-- Right side: action links -->
                         <div class="text-end">
-                            <a href="#" class="btn btn-outline-primary btn-sm me-2">Edit Entry</a>
-                            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeEntryModal" data-entry-url="{% url 'remove_entry' entry.id %}">Remove Entry</button>
+                            <a href="#" class="btn custom-btn btn-sm me-2"><i class="fa-solid fa-pencil"></i> Edit</a>
+                            <button class="btn custom-red-btn btn-sm" data-bs-toggle="modal" data-bs-target="#removeEntryModal" data-entry-url="{% url 'remove_entry' entry.id %}"><i class="fa-solid fa-trash"></i> Delete</button>
                         </div>
                     </div>
                 {% endfor %}
