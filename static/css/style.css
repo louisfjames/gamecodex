@@ -198,11 +198,12 @@ body {
 
 .profile-poster {
     width: 70%;
-    height: 230px;
+    height: 30px;
     object-fit: cover;
     border-radius: 16px;
     display: block;
 }
+
 
 
 /* ============ Search Page Styles ============ */
