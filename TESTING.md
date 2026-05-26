@@ -231,8 +231,8 @@ This section documents the issues found during development and how each one was 
   </thead>
   <tbody>
     <tr>
-      <td>(1) x</td>
-      <td>x</td>
+      <td>(1) Date Added</td>
+      <td>Date added does not update when you use edit function - makes user journey unsatisfying when look at all entries list</td>
       <td>✔️ Fixed or NOT</td>
       <td>Fix: x</td>
       <td>xxxxx</td>

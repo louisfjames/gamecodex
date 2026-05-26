@@ -25,3 +25,6 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('search/', include('games.urls')),
 ]
+
+handler404 = 'core.views.handler404'
+handler500 = 'core.views.handler500'
