@@ -11,13 +11,15 @@ def profile_view(request):
     """
     Display the user's profile page with a summary of their game activity.
 
-    This view retrieves the latest three GameEntry records for each status category belonging to the authenticated user. These categories include:
+    This view retrieves the latest three GameEntry records for each status category belonging to the 
+    authenticated user. These categories include:
     - currently_playing
     - completed
     - backlog
     - abandoned
 
-    The entries are ordered by date_added (newest first) and passed to the template so the profile page can show a quick snapshot of the user's most recent activity in each list.
+    The entries are ordered by date_added (newest first) and passed to the template so the profile page 
+    can show a quick snapshot of the user's most recent activity in each list.
     """
     user = request.user
     
@@ -132,10 +134,32 @@ def remove_entry(request, entry_id):
 
 @login_required
 def edit_entry(request, entry_id):
-    entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
 
+    """
+    Allow the authenticated user to update an existing GameEntry.
+
+    This view retrieves the specified entry, ensuring it belongs to the
+    current user, and displays a form pre‑filled with the entry's data.
+    On POST, the submitted form is validated and the entry is updated
+    in the database. A success message is shown and the user is redirected
+    back to the full entries list. On GET, the form is rendered for editing.
+
+    Parameters:
+        request (HttpRequest): The incoming HTTP request.
+        entry_id (int): The ID of the GameEntry to edit.
+
+    Returns:
+        HttpResponse: The rendered edit form on GET, or a redirect to the
+        entries list after a successful update.
+    """
+
+    entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
+    entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
+    
     if request.method == "POST":
         form = GameEntryForm(request.POST, instance=entry)
+        form.fields["platform"].disabled = True 
+        
         if form.is_valid():
             form.save()
             messages.success(request, f"'{entry.title}' has been updated.", extra_tags="game")
