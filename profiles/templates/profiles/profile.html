@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between align-items-center pb-2 mb-3">
             <h2>{{ user.username }}'s Profile</h2>
             <div class="d-flex flex-column flex-md-row align-items-end gap-2">
-                <a href="{% url 'all_entries' %}" class="btn custom-btn">View / Edit All Entries</a>
+                <a href="{% url 'all_entries' %}" class="btn custom-btn">View All Entries</a>
             </div>
         </div>
 
@@ -46,7 +46,7 @@
         <div class="profile-section">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="mb-0 h4">Currently Playing</h2>
-            <a href="{% url 'all_entries' %}?status=playing" class="btn btn-sm custom-btn">View / Edit Full List</a>
+            <a href="{% url 'all_entries' %}?status=playing" class="btn btn-sm custom-btn">Manage Entries</a>
           </div>
 
           <div class="row">
@@ -76,7 +76,7 @@
         <div class="profile-section">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="mb-0 h4">Games Completed</h2>
-            <a href="{% url 'all_entries' %}?status=completed" class="btn btn-sm custom-btn">View / Edit Full List</a>
+            <a href="{% url 'all_entries' %}?status=completed" class="btn btn-sm custom-btn">Manage Entries</a>
           </div>
 
           <div class="row">
@@ -106,7 +106,7 @@
         <div class="profile-section">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="mb-0 h4">Gaming Backlog</h2>
-            <a href="{% url 'all_entries' %}?status=backlog" class="btn btn-sm custom-btn">See Full List / Edit List</a>
+            <a href="{% url 'all_entries' %}?status=backlog" class="btn btn-sm custom-btn">Manage Entries</a>
           </div>
 
           <div class="row">
@@ -136,7 +136,7 @@
         <div class="profile-section">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="mb-0 h4">Games Abandoned</h2>
-            <a href="{% url 'all_entries' %}?status=abandoned" class="btn btn-sm custom-btn">See Full List / Edit List</a>
+            <a href="{% url 'all_entries' %}?status=abandoned" class="btn btn-sm custom-btn">Manage Entries</a>
           </div>
 
           <div class="row">

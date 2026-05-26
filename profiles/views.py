@@ -128,3 +128,19 @@ def remove_entry(request, entry_id):
     entry.delete()
     messages.success(request, f"'{title}' has been removed from your profile.")
     return redirect('all_entries')
+
+
+@login_required
+def edit_entry(request, entry_id):
+    entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
+
+    if request.method == "POST":
+        form = GameEntryForm(request.POST, instance=entry)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"'{entry.title}' has been updated.", extra_tags="game")
+            return redirect("all_entries")
+    else:
+        form = GameEntryForm(instance=entry)
+
+    return render(request, "profiles/edit_entry.html", {"form": form, "entry": entry})
