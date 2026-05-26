@@ -55,12 +55,12 @@
                     <div class="result-card p-3">
                         <a href="#" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a>
                         {% if entry.cover_id %}
-                        <div class="poster-wrapper pb-2">
-                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
-                        </div>
+                            <div class="poster-wrapper pb-2">
+                                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
+                            </div>
                         {% endif %}
                         <div class="card-body text-white align-items-center">
-                            <h3 class="card-title">{{ entry.title }}</h3>
+                            <h3 class="card-title text-center">{{ entry.title }}</h3>
                         </div>
                     </div>
                 </div>
@@ -76,22 +76,21 @@
         <div class="profile-section">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="mb-0 h4">Games Completed</h2>
-            <a href="{% url 'all_entries' %}?status=completed" class="text-decoration-none text-primary">See Full List / Edit List</a>
+            <a href="{% url 'all_entries' %}?status=completed" class="btn btn-sm custom-btn">View / Edit Full List</a>
           </div>
 
           <div class="row">
             {% for entry in completed_entries|slice:":3" %}
               <div class="col-md-4 mb-4">
                 <div class="result-card p-3">
-                  {% if entry.cover_id %}
-                    <div class="poster-wrapper pb-2">
-                      <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg"
-                           alt="{{ entry.title }}" class="profile-poster">
-                    </div>
-                  {% endif %}
+                    <a href="#" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a>                    
+                    {% if entry.cover_id %}
+                        <div class="poster-wrapper pb-2">
+                            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
+                        </div>
+                    {% endif %}
                   <div class="card-body text-white align-items-center">
-                    <h3 class="card-title">{{ entry.title }}</h3>
-                    <p class="small mb-0">Added: {{ entry.date_added|date:"d M Y" }}</p>
+                    <h3 class="card-title text-center">{{ entry.title }}</h3>
                   </div>
                 </div>
               </div>
@@ -107,23 +106,22 @@
         <div class="profile-section">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="mb-0 h4">Gaming Backlog</h2>
-            <a href="{% url 'all_entries' %}?status=backlog" class="text-decoration-none text-primary">See Full List / Edit List</a>
+            <a href="{% url 'all_entries' %}?status=backlog" class="btn btn-sm custom-btn">See Full List / Edit List</a>
           </div>
 
           <div class="row">
             {% for entry in backlog_entries|slice:":3" %}
               <div class="col-md-4 mb-4">
                 <div class="result-card p-3">
-                  {% if entry.cover_id %}
-                    <div class="poster-wrapper pb-2">
-                      <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg"
-                           alt="{{ entry.title }}" class="profile-poster">
+                    <a href="#" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a> 
+                    {% if entry.cover_id %}
+                        <div class="poster-wrapper pb-2">
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
+                        </div>
+                    {% endif %}
+                    <div class="card-body text-white align-items-center">
+                        <h3 class="card-title text-center">{{ entry.title }}</h3>
                     </div>
-                  {% endif %}
-                  <div class="card-body text-white align-items-center">
-                    <h3 class="card-title">{{ entry.title }}</h3>
-                    <p class="small mb-0">Added: {{ entry.date_added|date:"d M Y" }}</p>
-                  </div>
                 </div>
               </div>
             {% empty %}
@@ -138,23 +136,22 @@
         <div class="profile-section">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="mb-0 h4">Games Abandoned</h2>
-            <a href="{% url 'all_entries' %}?status=abandoned" class="text-decoration-none text-primary">See Full List / Edit List</a>
+            <a href="{% url 'all_entries' %}?status=abandoned" class="btn btn-sm custom-btn">See Full List / Edit List</a>
           </div>
 
           <div class="row">
             {% for entry in abandoned_entries|slice:":3" %}
               <div class="col-md-4 mb-4">
                 <div class="result-card p-3">
-                  {% if entry.cover_id %}
+                    <a href="#" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a> 
+                    {% if entry.cover_id %}
                     <div class="poster-wrapper pb-2">
-                      <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg"
-                           alt="{{ entry.title }}" class="profile-poster">
+                      <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
                     </div>
-                  {% endif %}
-                  <div class="card-body text-white align-items-center">
-                    <h3 class="card-title">{{ entry.title }}</h3>
-                    <p class="small mb-0">Added: {{ entry.date_added|date:"d M Y" }}</p>
-                  </div>
+                    {% endif %}
+                    <div class="card-body text-white align-items-center">
+                        <h3 class="card-title text-center">{{ entry.title }}</h3>
+                    </div>
                 </div>
               </div>
             {% empty %}
