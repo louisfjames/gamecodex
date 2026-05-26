@@ -23,7 +23,7 @@
                     <p class="fw-bolder">Please fix the following issues:</p>
                     {% for field, errors in form.errors.items %}
                         {% for error in errors %}
-                            <p>{{ error }}</p>
+                            <p><strong>{{ field }}:</strong> {{ error }}</p>
                         {% endfor %}
                     {% endfor %}
                 </div>
@@ -38,7 +38,8 @@
                     <!-- Platform -->
                     <div class="form-row pb-3">
                         <label class="form-label fw-bold">Platform:</label>
-                        {{ entry.platform_name }}
+                        <input type="hidden" name="platform" value="{{ entry.platform }}">
+                        <span class="text-light">{{ entry.platform_name }}</span>
                     </div>
                     <!-- Status -->
                     <div class="form-row pb-3">

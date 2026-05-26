@@ -154,17 +154,25 @@ def edit_entry(request, entry_id):
     """
 
     entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
-    entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
+    
+    platform_choices = [(pid, name) for pid, name in PLATFORM_LOOKUP.items()]
     
     if request.method == "POST":
         form = GameEntryForm(request.POST, instance=entry)
-        form.fields["platform"].disabled = True 
+        form.fields.pop("title", None)
+        form.fields.pop("platform", None)
         
         if form.is_valid():
-            form.save()
+            game_entry = form.save(commit=False)
+            game_entry.title = entry.title
+            game_entry.platform = entry.platform
+            game_entry.save()
             messages.success(request, f"'{entry.title}' has been updated.", extra_tags="game")
             return redirect("all_entries")
     else:
         form = GameEntryForm(instance=entry)
+        form.fields["platform"].choices = platform_choices
+        form.fields["platform"].widget.attrs["disabled"] = True
 
+    entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
     return render(request, "profiles/edit_entry.html", {"form": form, "entry": entry})
