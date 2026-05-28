@@ -197,11 +197,22 @@ def all_entries_view(request):
     # Get status choices from the model
     status_choices = GameEntry._meta.get_field("status").choices
 
+    # Category count
+    playing_count = GameEntry.objects.filter(user=request.user, status="playing").count()
+    completed_count = GameEntry.objects.filter(user=request.user, status="completed").count()
+    backlog_count = GameEntry.objects.filter(user=request.user, status="backlog").count()
+    abandoned_count = GameEntry.objects.filter(user=request.user, status="abandoned").count()
+
+
     return render(request, "profiles/all_entries.html", {
         "entries": page_obj, 
         "status_choices": status_choices, 
         "current_status": status,
         "page_obj": page_obj,
+        "playing_count": playing_count,
+        "completed_count": completed_count,
+        "backlog_count": backlog_count,
+        "abandoned_count": abandoned_count,
     })
 
 

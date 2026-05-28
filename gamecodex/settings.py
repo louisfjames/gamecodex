@@ -127,11 +127,13 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+DATE_FORMAT = "j M Y"
+DATETIME_FORMAT = "j M Y, H:i"
+USE_L10N = False 
 
 USE_TZ = True
 
