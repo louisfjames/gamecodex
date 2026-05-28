@@ -233,11 +233,10 @@ body {
 .profile-section {
     background: var(--color-accent-1);
     border: 1px solid var(--color-accent-2);
-    border-radius: 16px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 17px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    margin-bottom: 2rem;
 }
 
 .card-title {
