@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between align-items-center pb-2 mb-3">
             <h2 class="text-decoration-underline profile-title">{{ user.username }}'s Profile</h2>
             <div class="d-flex flex-column flex-md-row align-items-end gap-2">
-                <a href="{% url 'all_entries' %}" class="btn custom-btn btn-sm">View All Entries</a>
+                <a href="{% url 'all_entries' %}" class="btn custom-btn btn-sm">View Gaming Log</a>
             </div>
         </div>
 
@@ -53,7 +53,7 @@
             {% for entry in currently_playing_entries|slice:":3" %}
               <div class="col-md-4 mb-4">
                     <div class="result-card p-3">
-                        <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pen-to-square"></i></a>
                         {% if entry.cover_id %}
                             <div class="poster-wrapper pb-2">
                                 <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
@@ -83,7 +83,7 @@
             {% for entry in completed_entries|slice:":3" %}
               <div class="col-md-4 mb-4">
                 <div class="result-card p-3">
-                    <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a>                    
+                    <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pen-to-square"></i></a>                    
                     {% if entry.cover_id %}
                         <div class="poster-wrapper pb-2">
                             <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
@@ -113,7 +113,7 @@
             {% for entry in backlog_entries|slice:":3" %}
               <div class="col-md-4 mb-4">
                 <div class="result-card p-3">
-                    <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a> 
+                    <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pen-to-square"></i></a> 
                     {% if entry.cover_id %}
                         <div class="poster-wrapper pb-2">
                         <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
@@ -143,7 +143,7 @@
             {% for entry in abandoned_entries|slice:":3" %}
               <div class="col-md-4 mb-4">
                 <div class="result-card p-3">
-                    <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pencil"></i></a> 
+                    <a href="{% url 'edit_entry' entry.id %}" class="edit-btn position-absolute top-0 end-0 m-2"><i class="fa-solid fa-pen-to-square"></i></a> 
                     {% if entry.cover_id %}
                     <div class="poster-wrapper pb-2">
                       <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }}" class="profile-poster">
