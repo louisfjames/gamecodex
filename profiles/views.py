@@ -5,6 +5,8 @@ from .models import GameEntry
 from games.services.igdb import PLATFORM_LOOKUP
 from django.contrib import messages
 from django.views.decorators.http import require_POST
+from django.core.paginator import Paginator
+
 
 @login_required
 def profile_view(request):
@@ -171,17 +173,27 @@ def all_entries_view(request):
     # Ordering by date added
     entries = entries.order_by("-date_added", "status")
 
+    # Pagination
+    paginator = Paginator(entries, 10)  # 10 entries per page
+    page_number = request.GET.get("page", 1)
+    page_obj = paginator.get_page(page_number)
+
     # Attach readable platform names
-    for entry in entries:
+    for entry in page_obj:
         if entry.platform and entry.platform.isdigit():
             entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
         else:
-            entry.platform_name = entry.platform
+            entry.platform_name = entry.platform  
 
     # Get status choices from the model
     status_choices = GameEntry._meta.get_field("status").choices
 
-    return render(request, "profiles/all_entries.html", {"entries": entries, "status_choices": status_choices, "current_status": status,})
+    return render(request, "profiles/all_entries.html", {
+        "entries": page_obj, 
+        "status_choices": status_choices, 
+        "current_status": status,
+        "page_obj": page_obj,    
+    })
 
 
 @login_required

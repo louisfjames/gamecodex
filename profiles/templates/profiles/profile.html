@@ -155,7 +155,7 @@
                 </div>
               </div>
             {% empty %}
-              <p class="text-muted">No games in this list yet.</p>
+              <p>No games in this category yet. <a href="{% url 'search' %}">Search for a game</a> to add one!</p>
             {% endfor %}
           </div>
         </div>
