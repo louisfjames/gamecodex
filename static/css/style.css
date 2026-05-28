@@ -88,6 +88,37 @@ body {
     color: var(--color-font); 
 }
 
+/* Links */
+.link-text {
+    color: var(--color-font);
+}
+
+.link-text:hover {
+    transform: translateY(-2px);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Footer */
+.footer-text {
+    color: var(--color-font);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer-text:hover {
+    transform: translateY(-2px);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-icon {
+    color: var(--color-font);
+    font-size: 1.05em;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer-icon:hover {
+    transform: translateY(-2px);
+    color: rgba(255, 255, 255, 0.6);
+}
 
 /* Widgets - including Dropdowns and Date Inputs */
 .custom-dropdown {
