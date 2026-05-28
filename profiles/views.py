@@ -11,26 +11,31 @@ def profile_view(request):
     """
     Display the user's profile page with a summary of their game activity.
 
-    This view retrieves the latest three GameEntry records for each status category belonging to the 
-    authenticated user. These categories include:
-    - currently_playing
-    - completed
-    - backlog
-    - abandoned
+    Retrieves the three most recent GameEntry records for each status category
+    belonging to the current user, ordered by date_added descending. These
+    snapshots are passed to the template to give the user a quick overview of
+    their most recent activity across all four lists.
 
-    The entries are ordered by date_added (newest first) and passed to the template so the profile page 
-    can show a quick snapshot of the user's most recent activity in each list.
+    Parameters:
+        request (HttpRequest): The incoming HTTP request.
+
+    Returns:
+        HttpResponse: The rendered profile page containing the four entry
+        querysets as context.
+
+    Context:
+        currently_playing_entries (QuerySet): Up to 3 most recent playing entries.
+        completed_entries (QuerySet): Up to 3 most recent completed entries.
+        backlog_entries (QuerySet): Up to 3 most recent backlog entries.
+        abandoned_entries (QuerySet): Up to 3 most recent abandoned entries.
     """
     user = request.user
     
     entries = GameEntry.objects.filter(user=user)
 
     currently_playing_entries = entries.filter(status="playing").order_by("-date_added")[:3]
-
     completed_entries = entries.filter(status="completed").order_by("-date_added")[:3]
-
     backlog_entries = entries.filter(status="backlog").order_by("-date_added")[:3]
-
     abandoned_entries = entries.filter(status="abandoned").order_by("-date_added")[:3]
 
     context = {
@@ -42,8 +47,35 @@ def profile_view(request):
 
     return render(request, 'profiles/profile.html', context)
 
+
 @login_required
 def add_game_view(request):
+    """
+    Display and process the form for adding a new game to the user's library.
+
+    On GET, reads game metadata passed as query parameters from the search page
+    and renders a pre-filled form with the title and available platform choices.
+    On POST, validates the form, checks for duplicate entries, and saves the new
+    GameEntry to the database before redirecting to the user's profile.
+
+    Parameters:
+        request (HttpRequest): The incoming HTTP request. On GET, expects the
+            following query parameters:
+            - 'title' (str): The game title sourced from IGDB.
+            - 'platforms' (str): A comma-separated string of IGDB platform IDs.
+            - 'cover' (str): The IGDB cover image ID.
+            - 'summary' (str): A short description of the game from IGDB.
+
+    Returns:
+        HttpResponse: The rendered add game form on GET, or on a failed POST
+        validation or duplicate check. Redirects to the profile page on a
+        successful save.
+
+    Context:
+        form (GameEntryForm): The form instance for creating a new entry.
+        cover_id (str): The IGDB cover image ID for displaying artwork.
+        summary (str): The game summary sourced from IGDB.
+    """
 
     # Read values passed from search page
     title = request.GET.get("title")
@@ -95,8 +127,37 @@ def add_game_view(request):
 
     return render(request, "profiles/add_game.html", {"form": form, "cover_id": cover_id, "summary": summary,})
 
+
 @login_required
 def all_entries_view(request):
+    """
+    Display all game library entries for the authenticated user.
+
+    Retrieves all GameEntry records belonging to the current user, with an
+    optional status filter applied via a GET parameter. Results are ordered
+    by date_added descending, then by status. Each entry is annotated with a
+    human-readable platform name resolved from PLATFORM_LOOKUP before being
+    passed to the template.
+
+    Parameters:
+        request (HttpRequest): The incoming HTTP request. Accepts an optional
+            GET parameter:
+            - 'status' (str): Filters results to a specific status category.
+              Must match one of the STATUS_CHOICES values ('playing',
+              'completed', 'backlog', 'abandoned').
+
+    Returns:
+        HttpResponse: The rendered entries list page.
+
+    Context:
+        entries (QuerySet): All matching GameEntry records for the user,
+            each annotated with a platform_name attribute.
+        status_choices (list): The full list of status choices from the
+            GameEntry model, used to populate the filter UI.
+        current_status (str or None): The currently active status filter,
+            or None if no filter is applied.
+    """
+    
     # Read status from the URL
     status = request.GET.get("status")
 
@@ -125,6 +186,21 @@ def all_entries_view(request):
     
 @require_POST
 def remove_entry(request, entry_id):
+    """
+    Delete a GameEntry from the authenticated user's library.
+
+    Retrieves the specified entry, ensuring it belongs to the current user,
+    then permanently deletes it. A success message is shown and the user is
+    redirected back to the full entries list.
+
+    Parameters:
+        request (HttpRequest): The incoming HTTP request. Must be a POST request.
+        entry_id (int): The ID of the GameEntry to delete.
+
+    Returns:
+        HttpResponse: A redirect to the entries list after a successful deletion.
+    """
+
     entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
     title = entry.title
     entry.delete()

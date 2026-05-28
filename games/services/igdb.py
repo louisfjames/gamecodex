@@ -40,9 +40,32 @@ PLATFORM_LOOKUP = {
 
 def search_games(query, platform=None):
     """
-    IGDB search function.
-    Sends a search query to IGDB and returns raw JSON.
-    Defensive design includes: input validation, credential validation, network error handling and non-200 response handling.
+    Search for games via the IGDB API and return results sorted by popularity.
+
+    Constructs an APICalypse query and sends it to the IGDB games endpoint.
+    Results include each game's name, cover image, platforms, summary, and
+    rating data, and are sorted by total_rating descending (falling back to
+    rating where total_rating is absent).
+
+    Parameters:
+        query (str): The search term entered by the user. Must be at least
+            2 characters after stripping whitespace.
+        platform (str, optional): A platform filter key corresponding to an
+            entry in PLATFORM_IDS. When provided, restricts results to games
+            available on that platform. Defaults to None (no filtering).
+
+    Returns:
+        dict: A dictionary with two keys:
+            - 'error' (str or None): A human-readable error message if
+              something went wrong, otherwise None.
+            - 'results' (list): A list of game dictionaries returned by IGDB,
+              sorted by popularity. Empty if an error occurred.
+
+    Error conditions:
+        - Query is empty or fewer than 2 characters.
+        - IGDB credentials (CLIENT_ID or ACCESS_TOKEN) are missing.
+        - IGDB returns a non-200 status code.
+        - A network error occurs during the request.
     """
 
     # Input Validation
@@ -94,4 +117,7 @@ def search_games(query, platform=None):
         return {"error": None, "results": results}
 
     except requests.exceptions.RequestException:
-        return {"error": "Network error contacting IGDB.", "results": []}
+        return {
+            "error": "Network error contacting IGDB.", 
+            "results": []
+        }
