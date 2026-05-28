@@ -88,6 +88,12 @@ body {
     color: var(--color-font); 
 }
 
+.btn-xs {
+    padding: 2px 8px;          /* tighter padding */
+    font-size: 0.75rem;        /* smaller text */
+    border-radius: 6px;        /* slightly less rounded */
+}
+
 /* Links */
 .link-text {
     color: var(--color-font);

@@ -40,14 +40,23 @@ def profile_view(request):
     backlog_entries = entries.filter(status="backlog").order_by("-date_added")[:3]
     abandoned_entries = entries.filter(status="abandoned").order_by("-date_added")[:3]
 
+    playing_count = GameEntry.objects.filter(user=request.user, status="playing").count()
+    completed_count = GameEntry.objects.filter(user=request.user, status="completed").count()
+    backlog_count = GameEntry.objects.filter(user=request.user, status="backlog").count()
+    abandoned_count = GameEntry.objects.filter(user=request.user, status="abandoned").count()
+
     context = {
         "currently_playing_entries": currently_playing_entries,
         "completed_entries": completed_entries,
         "backlog_entries": backlog_entries,
         "abandoned_entries": abandoned_entries,
+        "playing_count": playing_count,
+        "completed_count": completed_count,
+        "backlog_count": backlog_count,
+        "abandoned_count": abandoned_count,
     }
 
-    return render(request, 'profiles/profile.html', context)
+    return render(request, 'profiles/profile.html', context,)
 
 
 @login_required
@@ -192,7 +201,7 @@ def all_entries_view(request):
         "entries": page_obj, 
         "status_choices": status_choices, 
         "current_status": status,
-        "page_obj": page_obj,    
+        "page_obj": page_obj,
     })
 
 
