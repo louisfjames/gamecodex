@@ -68,6 +68,17 @@
                 </div>
             {% endfor %}
         </div>
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center gap-5 mt-4">
+            {% if page > 1 %}
+                <a href="?q={{ query }}&platform={{ platform }}&page={{ page|add:'-1' }}" class="btn custom-btn btn-sm" style="width: 140px;">Previous</a>
+            {% endif %}
+            {% if results|length == 20 %}
+                <a href="?q={{ query }}&platform={{ platform }}&page={{ page|add:'1' }}" class="btn custom-btn btn-sm" style="width: 140px;">Next</a>
+            {% endif %}
+        </div>
+
     {% endif %}
 
 </section>

@@ -38,7 +38,7 @@ PLATFORM_LOOKUP = {
     6: "PC",
 }
 
-def search_games(query, platform=None):
+def search_games(query, platform=None, offset=0):
     """
     Search for games via the IGDB API and return results sorted by popularity.
 
@@ -86,7 +86,7 @@ def search_games(query, platform=None):
         query_string += f" where platforms = ({id_string});"
 
     # Ending Query String w/ Limit
-    query_string += " limit 20;"
+    query_string += f" limit 20; offset {offset};"
 
     # API Request Setup
     url = "https://api.igdb.com/v4/games"

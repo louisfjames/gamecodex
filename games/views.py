@@ -23,10 +23,12 @@ def search_view(request):
     
     query = request.GET.get("q", "")
     platform = request.GET.get("platform")
+    page = int(request.GET.get("page", 1))
+    offset = (page - 1) * 20
 
     response = {"error": None, "results": []}
     if request.GET:
-        response = search_games(query, platform=platform)
+        response = search_games(query, platform=platform, offset=offset)
 
         for g in response["results"]:
             g["platform_names"] = [
@@ -38,4 +40,5 @@ def search_view(request):
         "platform": platform,
         "error": response["error"],
         "results": response["results"],
+        "page": page,
     })
