@@ -183,7 +183,8 @@ def all_entries_view(request):
 
     return render(request, "profiles/all_entries.html", {"entries": entries, "status_choices": status_choices, "current_status": status,})
 
-    
+
+@login_required
 @require_POST
 def remove_entry(request, entry_id):
     """
