@@ -219,6 +219,11 @@ body {
 
 /* ============ Profile Page Styles ============ */
 
+.profile-title {
+    text-underline-offset: 0.3em;
+    text-decoration-thickness: 2px;
+}
+
 .profile-section {
     background: var(--color-accent-1);
     border: 1px solid var(--color-accent-2);
