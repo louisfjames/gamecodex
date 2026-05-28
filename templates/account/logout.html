@@ -21,7 +21,8 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-danger right" type="submit">{% trans 'Sign Out' %}</button>
+                <a href="{% url 'profile' %}" class="btn custom-btn me-5">Back</a>
+                <button class="btn custom-red-btn right" type="submit">{% trans 'Sign Out' %}</button>
             </form>
         </div>
     </div>
