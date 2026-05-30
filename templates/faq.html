@@ -4,6 +4,103 @@
 
 {% block content %}
 
-<h1>FAQ</h1>
-<p>...</p>
+<div class="container py-5">
+
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Frequently Asked Questions</h1>
+        <p class="lead">Everything you need to know about GameCodex.</p>
+    </div>
+
+    <!-- Accordion -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            What is GameCodex?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            GameCodex is a personal game tracking platform that lets you organise your gaming library across multiple platforms. Search for games, add them to your profile, and track your progress with statuses like Currently Playing, Completed, Backlog, and Abandoned.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            How do I add a game to my library?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Use the Search page to find your game, select the correct platform, choose a status, and click Add Entry to Profile. The game will then appear in your library with its cover art.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Can I change the platform after adding a game?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No – the platform is locked when you first add the entry. If you need to change it, delete the entry and add it again with the correct platform. This keeps your library accurate and prevents accidental changes.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Where does the game data come from?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            GameCodex is powered by the IGDB (Internet Game Database) API, which provides game titles, cover art, platform information, and descriptions for thousands of games.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            What do the different statuses mean?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <strong>Currently Playing</strong> – games you're actively playing right now.<br>
+                            <strong>Completed</strong> – games you've finished.<br>
+                            <strong>Backlog</strong> – games you own or want to play but haven't started yet.<br>
+                            <strong>Abandoned</strong> – games you've stopped playing and don't plan to return to.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            Is GameCodex free?
+                        </button>
+                    </h2>
+                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, GameCodex is completely free to use. Simply create an account and start building your profile.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
