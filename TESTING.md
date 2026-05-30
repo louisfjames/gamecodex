@@ -201,16 +201,16 @@ This table outlines the key user stories and acceptance criteria completed durin
 
 #### Iteration Two
 
-| User Story | Acceptance Criteria | Status |
-|-----------|---------------------|--------|
-US 2.1.1 – Profile Shows Recent Games (Must Have) | Profile displays the three most recently updated games from each list. | Pass or Fail
-US 2.1.1 – Profile Shows Recent Games (Must Have) | Recent‑games sections update automatically when games are added, moved, or removed. | Pass or Fail
-US 2.1.2 – Move Games Between Lists (Must Have) | Users can change a game’s status using an edit or dropdown control. | Pass or Fail
-US 2.1.2 – Move Games Between Lists (Must Have) | The game appears in the new list immediately and is removed from the previous one. | Pass or Fail
-US 2.2.1 – Dedicated List Pages (Should Have) | Each list has its own page showing all games assigned to that category. | Pass or Fail
-US 2.2.1 – Dedicated List Pages (Should Have) | Pages load with clear headings and consistent styling across all lists. | Pass or Fail
-US 2.2.2 – List Stats on Profile (Could Have) | Profile page shows a count of games in each list. | Pass or Fail
-US 2.2.2 – List Stats on Profile (Could Have) | Stats update automatically when games are added, moved, or removed. | Pass or Fail
+| User Story | Acceptance Criteria | Status | Evidence/Notes |
+|-----------|---------------------|--------|----------------|
+US 2.1.1 – Profile Shows Recent Games (Must Have) | Profile displays the three most recently updated games from each list. | **✅ PASS** | Verified by adding 4+ games per list; newest three display correctly. |
+US 2.1.1 – Profile Shows Recent Games (Must Have) | Recent‑games sections update automatically when games are added, moved, or removed. | **❌ FAIL** | Fourth backlog entry not appearing; ordering incorrect. Logged as bug. |
+US 2.1.2 – Move Games Between Lists (Must Have) | Users can change a game’s status using an edit or dropdown control. |**✅ PASS** | Status dropdown works; updates save correctly. |
+US 2.1.2 – Move Games Between Lists (Must Have) | The game appears in the new list immediately and is removed from the previous one. | **✅ PASS** | Verified by moving entries between all lists; behaviour correct. |
+US 2.2.1 – Dedicated List Pages (Should Have) | Each list has its own page showing all games assigned to that category. | **✅ PASS** | All four list pages load correct filtered entries. |
+US 2.2.1 – Dedicated List Pages (Should Have) | Pages load with clear headings and consistent styling across all lists. | **✅ PASS** | Styling consistent; headings correct. |
+US 2.2.2 – List Stats on Profile (Could Have) | Profile page shows a count of games in each list. | **✅ PASS** | Counts appear correctly for all lists. |
+US 2.2.2 – List Stats on Profile (Could Have) | Stats update automatically when games are added, moved, or removed. | **✅ PASS** | Verified by adding/moving/deleting entries; stats update instantly. |
 
 
 #### Iteration Three
