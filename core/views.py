@@ -49,3 +49,10 @@ def handler500(request):
         HttpResponse: The rendered 500 error page with a 500 status code.
     """
     return render(request, '500.html', status=500)
+
+
+def about(request):
+    return render(request, "about.html")
+
+def faq(request):
+    return render(request, "faq.html")
