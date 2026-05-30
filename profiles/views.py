@@ -175,12 +175,13 @@ def all_entries_view(request):
     # Base queryset
     entries = GameEntry.objects.filter(user=request.user)
 
-    # Apply filter only if a status was selected
+    # Apply filter and ordering
+    entries = GameEntry.objects.filter(user=request.user)
+
     if status:
         entries = entries.filter(status=status)
 
-    # Ordering by date added
-    entries = GameEntry.objects.filter(user=request.user).order_by("-date_modified")
+    entries = entries.order_by("-date_modified")
 
     # Pagination
     paginator = Paginator(entries, 10)  # 10 entries per page

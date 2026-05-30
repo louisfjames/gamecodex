@@ -121,8 +121,8 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| Latest three items per list | Only the three most recent games appear for each status | Added 4+ games to each list, checked profile | Correctly shows newest three only | **❌ FAIL - See No 1 in Bug Table** |
-| Correct ordering | Items sorted newest → oldest | Added entries with different timestamps | Order correct across all lists | **❌ FAIL - See No 2 in Bug Table** |
+| Latest three items per list | Only the three most recent games appear for each status | Added 4+ games to each list, checked profile | Correctly shows newest three only | **✅PASS - Required fix, see commit deaa770** |
+| Correct ordering | Items sorted newest → oldest | Added entries with different timestamps | Order correct across all lists | **✅PASS - Required fix, see commit deaa770** |
 | Empty list behaviour | Empty lists show a friendly message or remain hidden | Viewed profile with no “Abandoned” entries | Behaviour correct and clean | **✅ PASS** |
 | Layout consistency | All four list sections align visually | Checked on desktop/tablet/mobile | Layout consistent and readable | **✅ PASS** |
 
@@ -142,7 +142,7 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | Page loads correct list | Each page shows only entries with that status | Visited all four list pages | Correct entries shown per list | **✅ PASS** |
-| Sorting | Entries sorted newest → oldest | Checked ordering | Sorting correct | **❌ FAIL - See No 3 in Bug Table** |
+| Sorting | Entries sorted newest → oldest | Checked ordering | Sorting correct | **✅PASS - Required fix, see commit deaa770** |
 | Navigation | “Back to Profile” or equivalent link works | Used return link on each page | Returns to profile page | **✅ PASS** |
 | Responsive layout | Cards adapt to screen size | Tested on mobile/tablet | Layout stable | **✅ PASS** |
 
@@ -204,7 +204,7 @@ This table outlines the key user stories and acceptance criteria completed durin
 | User Story | Acceptance Criteria | Status | Evidence/Notes |
 |-----------|---------------------|--------|----------------|
 US 2.1.1 – Profile Shows Recent Games (Must Have) | Profile displays the three most recently updated games from each list. | **✅ PASS** | Verified by adding 4+ games per list; newest three display correctly. |
-US 2.1.1 – Profile Shows Recent Games (Must Have) | Recent‑games sections update automatically when games are added, moved, or removed. | **❌ FAIL** | Fourth backlog entry not appearing; ordering incorrect. Logged as bug. |
+US 2.1.1 – Profile Shows Recent Games (Must Have) | Recent‑games sections update automatically when games are added, moved, or removed. | **✅PASS - Required fix, see commit deaa770** | Fourth backlog entry not appearing; ordering incorrect. Logged as bug. |
 US 2.1.2 – Move Games Between Lists (Must Have) | Users can change a game’s status using an edit or dropdown control. |**✅ PASS** | Status dropdown works; updates save correctly. |
 US 2.1.2 – Move Games Between Lists (Must Have) | The game appears in the new list immediately and is removed from the previous one. | **✅ PASS** | Verified by moving entries between all lists; behaviour correct. |
 US 2.2.1 – Dedicated List Pages (Should Have) | Each list has its own page showing all games assigned to that category. | **✅ PASS** | All four list pages load correct filtered entries. |
@@ -274,23 +274,23 @@ This section documents the issues found during development and how each one was 
     <tr>
       <td>(1) Fourth backlog entry not visible</td>
       <td>Adding a fourth game causes it not to appear on the profile page, despite being saved in the database.</td>
-      <td>❌</td>
+      <td>✅ PASS</td>
       <td>Fix: Ensure backlog entries are ordered by -date_modified so the three most recently updated items appear on the profile page. All entries remain accessible on the full backlog page. This resolves the issue where older items pushed newer ones out of the visible slice.</td>
-      <td>❌</td>
+      <td>deaa770</td>
     </tr>
     <tr>
       <td>(2) Backlog ordering incorrect</td>
       <td>Games added to the backlog display oldest first instead of newest first. Expected newest entries to appear on the left.</td>
-      <td>❌</td>
+      <td>✅ PASS</td>
       <td>Fix: Update backlog queryset to order by -date_modified instead of date_added. This ensures the most recently edited backlog items appear first, matching expected behaviour.</td>
-      <td>❌</td>
+      <td>deaa770</td>
     </tr>
     <tr>
       <td>(3) All Entries page not showing newest items first</td>
       <td>Newly added games do not appear at the top of the All Entries page. Ordering is incorrect, showing older entries before newer ones.</td>
-      <td>❌</td>
+      <td>✅ PASS</td>
       <td>Fix: Update the All Entries queryset to order by -date_modified so the most recently updated games appear at the top. This aligns the All Entries page with the profile page ordering.</td>
-      <td>❌</td>
+      <td>deaa770</td>
     </tr>
   </tbody>
 </table>
