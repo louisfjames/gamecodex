@@ -3,6 +3,46 @@
 {% block title %}About | GameCodex{% endblock %}
 
 {% block content %}
-<h1>About</h1>
-<p>...</p>
+<div class="container py-5">
+
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">About GameCodex</h1>
+        <p class="lead">Track, organise, and celebrate your gaming journey.</p>
+    </div>
+
+    <!-- What is GameCodex -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8 text-center">
+            <h2 class="fw-bold mb-3">What is GameCodex?</h2>
+            <p>GameCodex is a personal game tracking platform that helps players organise their gaming library, track progress, and reflect on their gaming history.</p>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="row text-center mb-5">
+        <div class="col-md-3">
+            <h5 class="fw-bold">Track Progress</h5>
+            <p>Log games as currently playing, completed, backlog, or abandoned.</p>
+        </div>
+        <div class="col-md-3">
+            <h5 class="fw-bold">Multiple Platforms</h5>
+            <p>Track games across all your favourite platforms in one place.</p>
+        </div>
+        <div class="col-md-3">
+            <h5 class="fw-bold">Powered by IGDB</h5>
+            <p>Search a massive database of games with cover art and descriptions.</p>
+        </div>
+        <div class="col-md-3">
+            <h5 class="fw-bold">Your Profile</h5>
+            <p>A personal space to celebrate and reflect on your gaming journey.</p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <h4 class="mb-3">Ready to start tracking?...</h4>
+        <a href="{% url 'account_signup' %}" class="btn custom-green-btn">Sign Up for Free</a>
+    </div>
+
+</div>
 {% endblock %}

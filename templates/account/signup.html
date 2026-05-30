@@ -2,6 +2,8 @@
 
 {% load i18n %}
 
+{% block title %}Signup | GameCodex{% endblock %}
+
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
@@ -11,14 +13,14 @@
       <h3>{% trans "Sign Up" %}</h3>
 
       <p>{% blocktrans %}
-        Welcome back to GameCodex. Do you already have an account? Then please <a class="link" href="{{ login_url }}">sign in</a>
+        Welcome back to GameCodex. Do you already have an account? Then please <a class="link-text" href="{{ login_url }}">sign in</a>
         instead.
       {% endblocktrans %}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-      <form class="signup glass-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
