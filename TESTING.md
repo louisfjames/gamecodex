@@ -275,21 +275,21 @@ This section documents the issues found during development and how each one was 
       <td>(1) Fourth backlog entry not visible</td>
       <td>Adding a fourth game causes it not to appear on the profile page, despite being saved in the database.</td>
       <td>❌</td>
-      <td>Fix: Adjust queryset limit logic to ensure only the latest three are shown but all entries remain accessible via the full backlog page. Verify filtering and slicing logic in profile_view.</td>
+      <td>Fix: Ensure backlog entries are ordered by -date_modified so the three most recently updated items appear on the profile page. All entries remain accessible on the full backlog page. This resolves the issue where older items pushed newer ones out of the visible slice.</td>
       <td>❌</td>
     </tr>
     <tr>
       <td>(2) Backlog ordering incorrect</td>
       <td>Games added to the backlog display oldest first instead of newest first. Expected newest entries to appear on the left.</td>
       <td>❌</td>
-      <td>Fix: Update queryset ordering in profile_view and backlog template to use descending date_added (e.g., .order_by('-date_added')).</td>
+      <td>Fix: Update backlog queryset to order by -date_modified instead of date_added. This ensures the most recently edited backlog items appear first, matching expected behaviour.</td>
       <td>❌</td>
     </tr>
     <tr>
       <td>(3) All Entries page not showing newest items first</td>
       <td>Newly added games do not appear at the top of the All Entries page. Ordering is incorrect, showing older entries before newer ones.</td>
       <td>❌</td>
-      <td>Fix: Update the All Entries queryset to sort by -date_added so the newest entries always appear first. Confirm template iteration respects the ordering.</td>
+      <td>Fix: Update the All Entries queryset to order by -date_modified so the most recently updated games appear at the top. This aligns the All Entries page with the profile page ordering.</td>
       <td>❌</td>
     </tr>
   </tbody>

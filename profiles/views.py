@@ -35,10 +35,10 @@ def profile_view(request):
     
     entries = GameEntry.objects.filter(user=user)
 
-    currently_playing_entries = entries.filter(status="playing").order_by("-date_added")[:3]
-    completed_entries = entries.filter(status="completed").order_by("-date_added")[:3]
-    backlog_entries = entries.filter(status="backlog").order_by("-date_added")[:3]
-    abandoned_entries = entries.filter(status="abandoned").order_by("-date_added")[:3]
+    currently_playing_entries = entries.filter(status="playing").order_by("-date_modified")[:3]
+    completed_entries = entries.filter(status="completed").order_by("-date_modified")[:3]
+    backlog_entries = entries.filter(status="backlog").order_by("-date_modified")[:3]
+    abandoned_entries = entries.filter(status="abandoned").order_by("-date_modified")[:3]
 
     playing_count = GameEntry.objects.filter(user=request.user, status="playing").count()
     completed_count = GameEntry.objects.filter(user=request.user, status="completed").count()
@@ -180,7 +180,7 @@ def all_entries_view(request):
         entries = entries.filter(status=status)
 
     # Ordering by date added
-    entries = entries.order_by("-date_added", "status")
+    entries = GameEntry.objects.filter(user=request.user).order_by("-date_modified")
 
     # Pagination
     paginator = Paginator(entries, 10)  # 10 entries per page
