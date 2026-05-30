@@ -39,7 +39,8 @@ class GameEntry(models.Model):
     date_added = models.DateField(auto_now_add=True)
     date_started = models.DateField(null=True, blank=True)
     date_completed = models.DateField(null=True, blank=True)
-    
+    date_modified = models.DateTimeField(auto_now=True)
+   
 
     def __str__(self):
         return f"{self.title} ({self.get_status_display()})"
