@@ -26,11 +26,10 @@ Iteration Breakdown:
   - Added profile page sections showing the three most recent games from each list.
   - Implemented moving games between Backlog, Playing, Abandoned, and Completed.
   - Created dedicated pages for full list history.
-  - Added optional list statistics to the profile page.
+  - Added list statistics to the profile page.
 - **Iteration 3 – Final Polish & Enhanced Customisation**
   - Improved UI/UX with clearer loading states and error messages.
   - Refined layout and visual clarity across all pages.
-  - Added optional features such as ratings and notes for game entries.
 
 
 ### Manual Testing
@@ -49,7 +48,7 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 | Back to Profile link | Returns user to profile | Clicked link | Profile page loads | **✅ PASS** |
 | Footer links | Footer links open correct pages | Clicked each link | All links open correct pages | **✅ PASS** |
 | Desktop layout | Layout stable on large screens | Tested on desktop | No layout issues | **✅ PASS** |
-| Tablet layout | Layout adapts correctly | Tested at 768–991px | Minor spacing adjustments needed | **✅ PASS - FIXED SEE COMMIT a84fa99** |
+| Tablet layout | Layout adapts correctly | Tested at 768–991px | Minor spacing adjustments needed | **✅ PASS - Required fix, see commit a84fa99** |
 | Mobile layout | Layout adapts to small screens | Tested at <768px | Layout clean and readable | **✅ PASS** |
 
 #### Iteration One - User Authentication (Signup, Login, Logout)
@@ -80,7 +79,7 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 | Add Entry validation | Shows errors for invalid input | Submitted empty fields | Validation errors shown | **✅ PASS** |
 | Delete Entry | Removes entry | Clicked delete | Entry removed from list | **✅ PASS** |
 | Entry ownership | Users only see their own entries | Logged in as two users | Entries isolated per user | **✅ PASS** |
-| Button layout | Buttons align correctly | Tested on tablet/mobile | Tablet spacing needed refinement | **✅ PASS - FIXED SEE COMMIT ac2815** |
+| Button layout | Buttons align correctly | Tested on tablet/mobile | Tablet spacing needed refinement | **✅ PASS - Required fix, see commit ac2815** |
 
 #### Iteration One - All Entries Page
 
@@ -105,7 +104,7 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| 404 page | Custom 404 appears | Entered invalid URL | 404 page loads | **Not yet implemented - priority for iteration 2** |
+| 404 page | Custom 404 appears | Entered invalid URL | 404 page loads | **✅ PASS - Impletented as part of Iteration 2 (see commit 701eb15)** |
 | Permission errors | Users can’t access others’ data | Tried accessing another user’s entry | Redirected or blocked | **✅ PASS** |
 | Form errors | Validation messages appear | Submitted invalid forms | Clear errors shown | **✅ PASS** |
 
@@ -118,11 +117,53 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 | Tablet responsiveness | Layout adapts to medium screens | Tested on tablet | Minor spacing issues | **✅ PASS** |
 | No horizontal scroll | No sideways scrolling | Tested on mobile/tablet | No scroll present | **✅ PASS** |
 
+#### Iteration Two – Profile Page – Latest Three Games Per List
 
-#### Iteration Two 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| Edit Entry | Updates existing entry | Edited a game | Changes saved correctly | **✅ PASS** |
+| Latest three items per list | Only the three most recent games appear for each status | Added 4+ games to each list, checked profile | Correctly shows newest three only | **❌ FAIL - See No 1 in Bug Table** |
+| Correct ordering | Items sorted newest → oldest | Added entries with different timestamps | Order correct across all lists | **❌ FAIL - See No 2 in Bug Table** |
+| Empty list behaviour | Empty lists show a friendly message or remain hidden | Viewed profile with no “Abandoned” entries | Behaviour correct and clean | **✅ PASS** |
+| Layout consistency | All four list sections align visually | Checked on desktop/tablet/mobile | Layout consistent and readable | **✅ PASS** |
+
+
+#### Iteration Two – Moving Games Between Lists
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Change status from entry page | Updating a game’s status moves it to the correct list | Edited status for multiple entries | Entries appear in new list, removed from old | **✅ PASS** |
+| Status update messages | Clear confirmation message shown | Updated several entries | Correct success messages shown | **✅ PASS** |
+| Ownership protection | Users cannot move others’ entries | Tried editing another user’s entry | Access blocked or redirected | **✅ PASS** |
+| Data integrity | No duplicate entries after moving | Moved same entry repeatedly | Only one entry exists at all times | **✅ PASS** |
+
+
+#### Iteration Two – Dedicated Full List Pages (Backlog, Playing, Completed, Abandoned)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Page loads correct list | Each page shows only entries with that status | Visited all four list pages | Correct entries shown per list | **✅ PASS** |
+| Sorting | Entries sorted newest → oldest | Checked ordering | Sorting correct | **❌ FAIL - See No 3 in Bug Table** |
+| Navigation | “Back to Profile” or equivalent link works | Used return link on each page | Returns to profile page | **✅ PASS** |
+| Responsive layout | Cards adapt to screen size | Tested on mobile/tablet | Layout stable | **✅ PASS** |
+
+
+#### Iteration Two – List Statistics on Profile Page
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Count accuracy | Stats match number of entries per list | Added/moved/deleted entries | Counts update correctly | **✅ PASS** |
+| Real‑time updates | Stats update immediately after changes | Changed statuses repeatedly | Stats updated instantly | **✅ PASS** |
+| Layout and visibility | Stats readable and visually consistent | Checked across devices | Stats display cleanly | **✅ PASS** |
+
+
+## Iteration Two – Error Handling & Edge Cases
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Invalid status change | Prevents invalid transitions | Tried forcing invalid status via URL | Redirected or blocked | **✅ PASS** |
+| Missing entries | Editing a deleted entry handled gracefully | Deleted entry then tried editing | Correct error/redirect | **✅ PASS** |
+| 404 integration | New pages use custom 404 | Entered invalid list URLs | Custom 404 shown | **✅ PASS** |
+
 
 #### Iteration Three 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -231,11 +272,25 @@ This section documents the issues found during development and how each one was 
   </thead>
   <tbody>
     <tr>
-      <td>(1) Date Added</td>
-      <td>Date added does not update when you use edit function - makes user journey unsatisfying when look at all entries list</td>
-      <td>✔️ Fixed or NOT</td>
-      <td>Fix: x</td>
-      <td>xxxxx</td>
+      <td>(1) Fourth backlog entry not visible</td>
+      <td>Adding a fourth game causes it not to appear on the profile page, despite being saved in the database.</td>
+      <td>❌</td>
+      <td>Fix: Adjust queryset limit logic to ensure only the latest three are shown but all entries remain accessible via the full backlog page. Verify filtering and slicing logic in profile_view.</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>(2) Backlog ordering incorrect</td>
+      <td>Games added to the backlog display oldest first instead of newest first. Expected newest entries to appear on the left.</td>
+      <td>❌</td>
+      <td>Fix: Update queryset ordering in profile_view and backlog template to use descending date_added (e.g., .order_by('-date_added')).</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>(3) All Entries page not showing newest items first</td>
+      <td>Newly added games do not appear at the top of the All Entries page. Ordering is incorrect, showing older entries before newer ones.</td>
+      <td>❌</td>
+      <td>Fix: Update the All Entries queryset to sort by -date_added so the newest entries always appear first. Confirm template iteration respects the ordering.</td>
+      <td>❌</td>
     </tr>
   </tbody>
 </table>
