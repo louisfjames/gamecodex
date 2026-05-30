@@ -254,6 +254,7 @@ body {
     padding: 17px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    min-height: 312px;
 }
 
 .card-title {
