@@ -66,7 +66,7 @@
                     <div class="custom-card p-3 d-flex align-items-start justify-content-between">
                         <!-- Left side: cover + details -->
                         <div class="d-flex align-items-center ">
-                            <div class="me-3">
+                            <div class="me-5">
                                 {% if entry.cover_id %}
                                     <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ entry.cover_id }}.jpg" alt="{{ entry.title }} cover" class="img-fluid rounded" style="max-width: 120px;">
                                 {% else %}
@@ -77,9 +77,9 @@
                             <div>
                                 <h5 class="fw-bold">{{ entry.title }}</h5>
                                 <p class="mb-1"><strong>Platform:</strong> {{ entry.platform_name }}</p>
-                                <p class="mb-1"><strong>Date added:</strong> {{ entry.date_added }}</p>
-                                <p class="mb-1"><strong>Last modified:</strong> {{ entry.date_modified|timesince }}</p>
                                 <p class="mb-1"><strong>Status:</strong> {{ entry.get_status_display }}</p>
+                                <p class="mb-1"><strong>Last modified:</strong> {{ entry.date_modified|timesince }}</p>
+                                <p class="mb-1"><strong>Date added:</strong> {{ entry.date_added }}</p>                               
                                 <p class="mb-1"><strong>Date started:</strong>
                                     {% if entry.date_started %}
                                         {{ entry.date_started }}
