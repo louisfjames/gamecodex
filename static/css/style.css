@@ -382,6 +382,48 @@ input[disabled] {
 
 /* ============ FAQ Page Styles ============ */
 
+.accordion-item {
+    background: var(--color-accent-1) !important;
+    border: 1px solid var(--color-accent-2) !important;
+    border-radius: 16px !important;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.accordion-body {
+    color: var(--color-font) !important;
+}
+
+.accordion-button {
+    background: var(--color-accent-1) !important;
+    color: var(--color-font) !important;
+    font-weight: 600;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--color-accent-2) !important;
+    color: var(--color-font) !important;
+}
+
+.accordion-item:first-of-type {
+    border-radius: 16px;
+}
+
+.accordion-item:last-of-type {
+    border-radius: 16px;
+}
+
+.accordion-button:not(.collapsed),
+.accordion-item:first-of-type .accordion-button:not(.collapsed) {
+    color: var(--color-font) !important;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
 
 
 /* ============ Media Queries ============ */
