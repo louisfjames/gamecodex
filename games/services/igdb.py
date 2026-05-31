@@ -14,9 +14,12 @@ PLATFORM_IDS = {
 PLATFORM_LOOKUP = {
     7: "PS1",
     8: "PS2",
+    39: "PS2",
     9: "PS3",
+    34: "PS3",
     48: "PS4",
     167: "PS5",
+    508: "PS5",
     38: "PSP",
     46: "PS Vita",
 
@@ -36,6 +39,14 @@ PLATFORM_LOOKUP = {
     37: "3DS",
 
     6: "PC",
+    53: "PC (Windows)",
+    
+    170: "Stadia",
+    123: "WonderSwan Color",
+    55: "Mobile",
+    99: "Sega Mega Drive / Genesis",
+    72: "Commodore 64",
+    74: "ZX Spectrum",
 }
 
 def search_games(query, platform=None, offset=0):
