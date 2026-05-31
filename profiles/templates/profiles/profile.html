@@ -8,7 +8,8 @@
         <div class="d-flex justify-content-between align-items-center pb-2 mb-3">
             <h2 class="text-decoration-underline profile-title">{{ user.username }}'s Profile</h2>
             <div class="d-flex flex-column flex-md-row align-items-end gap-2">
-                <a href="{% url 'all_entries' %}" class="btn custom-btn btn-sm">View Gaming Log</a>
+              <a href="{% url 'search' %}" class="btn custom-btn btn-sm"><i class="fas fa-plus"></i> Add Game</a>  
+              <a href="{% url 'all_entries' %}" class="btn custom-btn btn-sm">View Gaming Log</a>
             </div>
         </div>
 
