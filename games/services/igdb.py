@@ -5,7 +5,7 @@ CLIENT_ID = os.environ.get("IGDB_CLIENT_ID")
 ACCESS_TOKEN = os.environ.get("IGDB_ACCESS_TOKEN")
 
 PLATFORM_IDS = {
-    "PlayStation": [7, 8, 9, 48, 167, 38, 46], # IGDB IDs for PS1 to PS5 and handheld (PSP & Vita)
+    "PlayStation": [7, 8, 9, 48, 167, 38, 39, 46, 508], # IGDB IDs for PS1 to PS5 and handheld (PSP & Vita)
     "Xbox": [11, 12, 49, 169], # IGDB IDs for Xbox to Series X/S
     "Nintendo": [130, 41, 5, 21, 4, 19, 18, 20, 37], # IGDB IDs for NES to Switch and handheld (DS & 3DS)
     "PC": [6],
@@ -40,6 +40,8 @@ PLATFORM_LOOKUP = {
 
     6: "PC",
     53: "PC (Windows)",
+    14: "Mac",
+    3: "Linux",
     
     170: "Stadia",
     123: "WonderSwan Color",
