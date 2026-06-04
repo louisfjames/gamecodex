@@ -45,6 +45,10 @@
         <p>{{ error }}</p>
     {% endif %} 
 
+    {% if request.GET.q and not results and not error %}
+        <p>No games found for "{{ query }}". Try a different search term or adjust the platform filter.</p>
+    {% endif %}
+
     {% if results %}
         <div class="row mt-4">
             {% for game in results %}
