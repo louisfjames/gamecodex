@@ -504,6 +504,7 @@ input[disabled] {
   .custom-card .btn {
     margin: 0.25rem;
   }
+
 }
 
 /* Small devices (mobile, 768px and below) */
@@ -523,4 +524,14 @@ input[disabled] {
   .custom-card .btn {
     margin: 0.25rem;
   }
+
+  .gaming-stats {
+    font-size: 0.9rem;
+    line-height: 1.4; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
 }
