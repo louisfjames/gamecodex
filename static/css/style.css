@@ -59,6 +59,11 @@ body {
     opacity: 0.9;
 }
 
+.navbar-logo {
+    height: 42px;
+    width: auto;
+}
+
 /* Buttons */
 .custom-btn {
     background-color: var(--color-accent-1);
