@@ -23,7 +23,7 @@
             <div class="col-md-8">
                 
                 {% if form.errors %}
-                <div class="alert alert-danger mt-3">
+                <div class="alert alert-error mt-3">
                     <p class="fw-bolder">Oops! That combo doesn’t work:</p>
                     {% for field, errors in form.errors.items %}
                         {% for error in errors %}
