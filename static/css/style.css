@@ -268,7 +268,7 @@ body {
     opacity: 1;
 }
 
-/* Error Alerts */
+/* Errors & Alerts */
 .alert-error {
     background: rgba(255, 80, 80, 0.15);
     border: 2px solid rgba(255, 80, 80, 0.4);
