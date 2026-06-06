@@ -224,7 +224,7 @@ This table outlines the key user stories and acceptance criteria completed durin
 | User Story | Acceptance Criteria | Status | Evidence/Notes |
 |-----------|---------------------|--------|----------------|
 US 2.1.1 – Profile Shows Recent Games (Must Have) | Profile displays the three most recently updated games from each list. | **✅ PASS** | Verified by adding 4+ games per list; newest three display correctly. |
-US 2.1.1 – Profile Shows Recent Games (Must Have) | Recent‑games sections update automatically when games are added, moved, or removed. | **✅PASS - Required fix, see commit deaa770** | Fourth backlog entry not appearing; ordering incorrect. Logged as bug. |
+US 2.1.1 – Profile Shows Recent Games (Must Have) | Recent games sections update automatically when games are added, moved, or removed. | **✅PASS - Required fix, see commit deaa770** | Fourth backlog entry not appearing; ordering incorrect. Logged as bug. |
 US 2.1.2 – Move Games Between Lists (Must Have) | Users can change a game’s status using an edit or dropdown control. |**✅ PASS** | Status dropdown works; updates save correctly. |
 US 2.1.2 – Move Games Between Lists (Must Have) | The game appears in the new list immediately and is removed from the previous one. | **✅ PASS** | Verified by moving entries between all lists; behaviour correct. |
 US 2.2.1 – Dedicated List Pages (Should Have) | Each list has its own page showing all games assigned to that category. | **✅ PASS** | All four list pages load correct filtered entries. |
@@ -237,14 +237,16 @@ US 2.2.2 – List Stats on Profile (Could Have) | Stats update automatical
 
 | User Story | Acceptance Criteria | Status | Evidence/Notes |
 |-----------|---------------------|--------| ----------------|
-US 3.1.1 – Clearer Loading States & Errors (Must Have) | Loading indicators appear during API calls, list updates, and page transitions. | Pass or Fail
-US 3.1.1 – Clearer Loading States & Errors (Must Have) | Error messages use plain language and provide guidance on what to do next. | Pass or Fail
-US 3.1.2 – Improved Visual Clarity & Layout (Should Have) | Spacing, typography, and card layouts follow a consistent visual hierarchy. | Pass or Fail
-US 3.1.2 – Improved Visual Clarity & Layout (Should Have) | Key actions (add, edit, remove) are clearly visible and easy to access. | Pass or Fail
-US 3.2.1 – Add Personal Ratings (Could Have) | Users can assign a rating (e.g., 1–5 stars) to any game. | Pass or Fail
-US 3.2.1 – Add Personal Ratings (Could Have) | Ratings display consistently on list pages and the profile page. | Pass or Fail
-US 3.2.2 – Add Notes to Game Entries (Could Have) | Users can add, edit, and view notes for any game entry. | Pass or Fail
-US 3.2.2 – Add Notes to Game Entries (Could Have) | Notes are stored per user and displayed on the game’s card or detail section. | Pass or Fail
+US 3.1.1 – Clearer Loading States & Errors (Must Have) | Loading indicators appear during API calls, list updates, and page transitions. |**Pass** | Loading spinner added to search; form actions show feedback. |
+US 3.1.1 – Clearer Loading States & Errors (Must Have) | Error messages use plain language and provide guidance on what to do next. | **✅ PASS** | Validation and API errors now consistent and readable. |
+US 3.1.2 – Improved Visual Clarity & Layout (Should Have) | Spacing, typography, and card layouts follow a consistent visual hierarchy. | **✅ PASS** | Layout refinements applied across forms, cards, and search results. |
+US 3.1.2 – Improved Visual Clarity & Layout (Should Have) | Key actions (add, edit, remove) are clearly visible and easy to access. | **✅ PASS** | Buttons repositioned and aligned for clarity on all devices. |
+US 3.2.1 – Add Personal Ratings (Could Have) | Users can assign a rating (e.g., 1–5 stars) to any game. | **Postponed to future update** | Feature not included in Iteration 3 scope. |
+US 3.2.1 – Add Personal Ratings (Could Have) | Ratings display consistently on list pages and the profile page. | **Postponed to future update** | Requires rating system implementation. |
+US 3.2.2 – Add Notes to Game Entries (Could Have) | Users can add, edit, and view notes for any game entry. | **Postponed to future update** | Notes functionality deferred. |
+US 3.2.2 – Add Notes to Game Entries (Could Have) | Notes are stored per user and displayed on the game’s card or detail section. | **Postponed to future update** | Requires UI and model changes. |
+
+The “Could Have” features for this iteration were intentionally postponed to a future update. These items were explored during planning but deprioritised to ensure the core UI/UX improvements, loading states, and layout refinements were delivered to a high standard within the available time. This aligns with Agile principles where low priority enhancements are scheduled for later development once all Must and Should Haves are complete.
 
 
 ### HTML Validator
