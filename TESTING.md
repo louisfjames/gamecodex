@@ -3,15 +3,16 @@
 ## Table of Contents
 
 1. [Testing Approach](#testing-approach)
-2. [Manual Testing](#manual-testing)
-3. [Automated Testing](#automated-testing)
-4. [Acceptance Criteria Testing](#acceptance-criteria-testing)
-5. [HTML Validator](#html-validator)
-6. [CSS Validator](#css-validator)
-7. [JavaScript Validator](#javascript-validator)
-8. [Python Testing](#python-testing)
-9. [Google Chrome Lighthouse](#google-chrome-lighthouse)
-10. [Bug Fixes](#bug-fixes)
+2. [Testing Timeline](testing-timeline)
+3. [Manual Testing](#manual-testing)
+4. [Automated Testing](#automated-testing)
+5. [Acceptance Criteria Testing](#acceptance-criteria-testing)
+6. [HTML Validator](#html-validator)
+7. [CSS Validator](#css-validator)
+8. [JavaScript Validator](#javascript-validator)
+9. [Python Testing](#python-testing)
+10. [Google Chrome Lighthouse](#google-chrome-lighthouse)
+11. [Bug Fixes](#bug-fixes)
 
 ### Testing Approach
 This document summarises all testing completed throughout development. Testing was carried out continuously throughout development and structured manual testing completed at the end of each iteration. Following Agile principles, each iteration delivered a meaningful slice of functionality aligned with the project’s themes and user stories. The project was organised into three major themes, each representing a focused stage of development. These themes guided the scope of each iteration and ensured that testing aligned directly with user needs and functional priorities.
@@ -30,6 +31,17 @@ Iteration Breakdown:
 - **Iteration 3 – Final Polish & Enhanced Customisation**
   - Improved UI/UX with clearer loading states and error messages.
   - Refined layout and visual clarity across all pages.
+
+### Testing Timeline
+A consistent testing routine was maintained throughout development to ensure each iteration met its acceptance criteria and remained stable as new features were introduced. The timeline below outlines the key testing milestones completed during the project.
+
+| Phase  | Date |
+|------------------------------------------------------------------|---------------|
+| Project initiated | 8 May 2026 |
+| Iteration 1 testing completed (manual testing + acceptance checks) | 23 May 2026 |
+| Iteration 2 testing completed (manual testing + acceptance checks) | 30 May 2026 |
+| Iteration 3 testing completed (manual testing + acceptance checks) | 6 June 2026 |
+| Final testing phase (automated tests + validator checks) | 7 - X June 2026 |
 
 
 ### Manual Testing
@@ -156,7 +168,7 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 | Layout and visibility | Stats readable and visually consistent | Checked across devices | Stats display cleanly | **✅ PASS** |
 
 
-## Iteration Two – Error Handling & Edge Cases
+#### Iteration Two – Error Handling & Edge Cases
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -165,10 +177,18 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 | 404 integration | New pages use custom 404 | Entered invalid list URLs | Custom 404 shown | **✅ PASS** |
 
 
-#### Iteration Three 
+#### Iteration Three – Final Polish
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| x | x | x| x | **✔ PASS** or FAIL |
+| Loading states | Clear visual feedback during searches and form submissions | Triggered searches and form actions | Loading spinner and messages display correctly | **✅ PASS** |
+| Error messages | Errors appear clearly and consistently across pages | Forced validation and API errors | Messages readable and styled consistently | **✅ PASS** |
+| Layout refinements | Improved spacing and alignment across all devices | Checked all pages on mobile/tablet/desktop | Layout clean and visually consistent | **✅ PASS** |
+| Search results layout | Two‑column layout on medium screens, improved image scaling | Tested searches at multiple breakpoints | Cards display correctly and responsively | **✅ PASS** |
+| Form layout polish | Cleaner alignment and spacing on edit/add forms | Tested forms on all devices | Forms display neatly with consistent spacing | **✅ PASS** |
+| Button consistency | Buttons aligned and sized correctly on small screens | Checked profile, entry pages, and search results | Buttons centred and consistent | **✅ PASS** |
+| Image responsiveness | Result images scale correctly on small screens | Tested various screen sizes | Images display cleanly without distortion | **✅ PASS** |
+| Card spacing | Cards maintain consistent spacing across breakpoints | Reviewed search and list pages | Spacing uniform and visually balanced | **✅ PASS** |
+| Final UI sweep | No visual glitches or misaligned elements remain | Performed full-site walkthrough | No remaining UI issues found | **✅ PASS** |
 
 ### Automated Testing
 Automated testing checks code behaviour by running tests through a tool or script rather than by hand. Its key principles are repeatability, consistency, and early detection of errors. Automated tests run the same steps every time, which removes human error and makes it easier to spot issues when new features are added. They are useful for checking functions, input handling, and any part of the code that should always behave in the same way. 
@@ -215,8 +235,8 @@ US 2.2.2 – List Stats on Profile (Could Have) | Stats update automatical
 
 #### Iteration Three
 
-| User Story | Acceptance Criteria | Status |
-|-----------|---------------------|--------|
+| User Story | Acceptance Criteria | Status | Evidence/Notes |
+|-----------|---------------------|--------| ----------------|
 US 3.1.1 – Clearer Loading States & Errors (Must Have) | Loading indicators appear during API calls, list updates, and page transitions. | Pass or Fail
 US 3.1.1 – Clearer Loading States & Errors (Must Have) | Error messages use plain language and provide guidance on what to do next. | Pass or Fail
 US 3.1.2 – Improved Visual Clarity & Layout (Should Have) | Spacing, typography, and card layouts follow a consistent visual hierarchy. | Pass or Fail
