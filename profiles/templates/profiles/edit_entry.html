@@ -20,7 +20,7 @@
                 {% endif %}
             </div>
             <!-- Right Column: Form -->
-            <div class="col-md-8">
+            <div class="col-md-8 ">
                 {% if form.errors %}
                 <div class="alert alert-error mt-3">
                     <p class="fw-bolder">Please fix the following issues:</p>
@@ -59,12 +59,10 @@
                         {{ form.date_completed|add_class:"date-input" }}
                     </div>
                     <!-- Buttons -->
-                    <div class="d-flex justify-content-between mt-4">
-                        <a href="{% url 'all_entries' %}" class="btn custom-btn">Cancel</a>
-                        <div class="d-flex gap-2">
-                            <button type="button" class="btn custom-red-btn btn-sm" data-bs-toggle="modal" data-bs-target="#removeEntryModal" data-entry-url="{% url 'remove_entry' entry.id %}"><i class="fa-solid fa-trash"></i> Delete</button>
-                            <button type="submit" class="btn custom-green-btn">Save Changes</button>
-                        </div> 
+                    <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+                        <a href="{% url 'all_entries' %}" class="btn custom-btn px-4">Cancel</a>
+                        <button type="button" class="btn custom-red-btn px-4" data-bs-toggle="modal" data-bs-target="#removeEntryModal" data-entry-url="{% url 'remove_entry' entry.id %}"><i class="fa-solid fa-trash"></i> Delete</button>
+                        <button type="submit" class="btn custom-green-btn px-4">Save Changes</button>
                     </div>
                 </form>
             </div>

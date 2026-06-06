@@ -71,6 +71,7 @@ body {
     color: var(--color-font);
     border-radius: 10px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+    
 }
 
 .custom-btn:hover {
@@ -244,6 +245,30 @@ body {
     color: var(--color-font) !important;
     opacity: 0.7;
 }
+
+.form-row {
+  display: flex;
+  align-items: baseline; 
+}
+
+.form-label {
+  width: 140px; 
+  text-align: right;
+  margin-right: 0.75rem;
+}
+
+.form-label::after {
+  content: "";
+  display: inline-block;
+  width: 0.25rem; 
+}
+
+.description-text {
+  flex: 1;
+  line-height: 1.5;
+  margin-top: 0.15rem; /* nudges text to align with label baseline */
+}
+
 
 /* Modals */
 .modal-content {
@@ -505,6 +530,46 @@ input[disabled] {
     margin: 0.25rem;
   }
   
+  .form-label {
+    text-align: left;
+    width: auto;
+  }
+
+  .form-row {
+    justify-content: center;
+  }
+
+  .description-row {
+    display: block;
+    text-align: left;
+  }
+
+  .form-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-label {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-row input,
+  .form-row select {
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .description-row {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
 }
 
 /* Small devices (mobile, 768px and below) */
@@ -528,6 +593,6 @@ input[disabled] {
   .gaming-stats {
     font-size: 0.9rem;
     line-height: 1.4; 
-  }
+  } 
 
 }
