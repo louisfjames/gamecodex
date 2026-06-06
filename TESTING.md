@@ -275,14 +275,15 @@ TO BE COMPLETED - Potential wording: All Python files validated using multiple t
 ### Google Chrome Lighthouse
 Add performance results
 | Page | Desktop Results| Notes |
-| Landing Page |  |  |
-| Signup Page |  |  |
-| Login Page |  |  |
-| Profile Page |  |  |
-| Search Page |  |  |
-| Add Game Page |  |  |
-| Edit Game Page |  |  |
-| All Entries Page |  |  |
+|------|-----|--------|
+| Landing Page | <img src="docs/testing/lighthouse-landing-page.png" alt="lighthouse testing landing page" width="300">| None. |
+| Signup Page | <img src="docs/testing/lighthouse-sign-up-page.png" alt="lighthouse testing sign up page" width="300"> | None. | 
+| Login Page | <img src="docs/testing/lighthouse-login-page.png" alt="lighthouse testing login page" width="300"> | None. |
+| Profile Page | <img src="docs/testing/lighthouse-profile-page.png" alt="lighthouse testing profile page" width="300"> | None. |
+| Search Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added label to dropdown to improve accessibility. See commit - X. |
+| Add Game Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added labels to form elements to improve accessibility. See commit - X.  |
+| Edit Game Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added labels to form elements to improve accessibility. See commit - X.  |
+| All Entries / Gaming Log Page | <img src="docs/testing/lighthouse-entries-page.png" alt="lighthouse testing gaming log / entries page" width="300"> |  |
 
 Analysis performance results
 
