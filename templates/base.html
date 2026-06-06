@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO meta description -->
+    <meta name="description" content="GameCodex lets you search for games and organise them into personalised categories on your profile and helps you track your gaming journey across sessions.">
 
     <title>{% block title %}GameCodex{% endblock %}</title>
 
@@ -44,7 +45,7 @@
                         {% if user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'search' %}"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
-                            </li>
+                            </li> 
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'profile' %}"><i class="fa-solid fa-user"></i> Profile</a>
                             </li>

@@ -275,7 +275,14 @@ TO BE COMPLETED - Potential wording: All Python files validated using multiple t
 ### Google Chrome Lighthouse
 Add performance results
 | Page | Desktop Results| Notes |
-|------|----------------|-------|
+| Landing Page |  |  |
+| Signup Page |  |  |
+| Login Page |  |  |
+| Profile Page |  |  |
+| Search Page |  |  |
+| Add Game Page |  |  |
+| Edit Game Page |  |  |
+| All Entries Page |  |  |
 
 Analysis performance results
 
