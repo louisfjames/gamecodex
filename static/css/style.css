@@ -436,6 +436,9 @@ body {
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 12px;    
+    max-width: 90%;
+    margin: 0 auto 1rem;
+    display: block;
 }
 
 .input-group {

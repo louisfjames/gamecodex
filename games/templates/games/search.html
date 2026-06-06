@@ -52,7 +52,7 @@
     {% if results %}
         <div class="row mt-4">
             {% for game in results %}
-                <div class="col-md-3 mb-4">
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
                     <div class="card h-100 shadow-sm text-center result-card">
                         
                         <div class="card-body">
@@ -76,7 +76,7 @@
                             {% endif %}
 
 
-                            <!-- Add to Library Button -->
+                            <!-- Add Entry to Profile Button -->
                             <a href="{% url 'add_game' %}?title={{ game.name }}&platforms={{ game.platforms|join:',' }}&cover={{ game.cover.image_id }}&summary={{ game.summary|urlencode }}" class="btn custom-btn mt-2">Add Entry to Profile</a>
 
                         </div>
