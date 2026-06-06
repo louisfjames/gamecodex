@@ -34,29 +34,29 @@
                 <form method="post" class="form-center">
                     {% csrf_token %}
                     <!-- Game Title -->
-                    <div class="form-row pb-3">
+                    <div class="form-row pb-3" aria-label="Game title">
                         <label class="form-label fw-bold">Title:</label>
                         <span class="text-light">{{ entry.title }}</span>
                     </div>
                     <!-- Platform -->
                     <div class="form-row pb-3">
-                        <label class="form-label fw-bold">Platform:</label>
+                        <label class="form-label fw-bold" aria-label="Platform">Platform:</label>
                         <input type="hidden" name="platform" value="{{ entry.platform }}">
                         <span class="text-light">{{ entry.platform_name }}</span>
                     </div>
                     <!-- Status -->
                     <div class="form-row pb-3">
                         <label class="form-label fw-bold">Status:</label>
-                        {{ form.status|add_class:"custom-dropdown" }}
+                        {{ form.status|add_class:"custom-dropdown" | attr:"aria-label:Select game status" }}
                     </div>
                     <!-- Dates -->
                     <div class="form-row pb-2">
                         <label class="form-label fw-bold">Date started:</label>
-                        {{ form.date_started|add_class:"date-input" }}
+                        {{ form.date_started|add_class:"date-input" | attr:"aria-label:Date started" }}
                     </div>
                     <div class="form-row">
                         <label class="form-label fw-bold">Date completed:</label>
-                        {{ form.date_completed|add_class:"date-input" }}
+                        {{ form.date_completed|add_class:"date-input" | attr:"aria-label:Date completed" }}
                     </div>
                     <!-- Buttons -->
                     <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">

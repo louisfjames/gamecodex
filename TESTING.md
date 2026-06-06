@@ -280,9 +280,9 @@ Add performance results
 | Signup Page | <img src="docs/testing/lighthouse-sign-up-page.png" alt="lighthouse testing sign up page" width="300"> | None. | 
 | Login Page | <img src="docs/testing/lighthouse-login-page.png" alt="lighthouse testing login page" width="300"> | None. |
 | Profile Page | <img src="docs/testing/lighthouse-profile-page.png" alt="lighthouse testing profile page" width="300"> | None. |
-| Search Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added label to dropdown to improve accessibility. See commit - X. |
-| Add Game Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added labels to form elements to improve accessibility. See commit - X.  |
-| Edit Game Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added labels to form elements to improve accessibility. See commit - X.  |
+| Search Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added aria label to dropdown to improve accessibility. See commit - X. |
+| Add Game Page | <img src="docs/testing/lighthouse-add-game-page.png" alt="lighthouse testing add game page" width="300"> | Added aria labels to form elements to improve accessibility. See commit - X.  |
+| Edit Game Page | <img src="docs/testing/lighthouse-edit-page.png" alt="lighthouse testing edit page" width="300"> | Added aria labels to form elements to improve accessibility. See commit - X.  |
 | All Entries / Gaming Log Page | <img src="docs/testing/lighthouse-entries-page.png" alt="lighthouse testing gaming log / entries page" width="300"> |  |
 
 Analysis performance results
