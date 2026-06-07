@@ -304,7 +304,7 @@ Quality assurance:
 | games | igdb.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/services/igdb.py) | ✅ | Fix to spacing required and line length (a250812) - now fixed. |
 | profiles | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/admin.py) | ✅ | None. |
 | profiles | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/apps.py) | ✅ | None. |
-| profiles | forms.py | [Pep8 CI Link](#) | ✅ | None. |
+| profiles | forms.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/forms.py) | ✅ | Fix to spacing required and line length (4890df9) - now fixed.  |
 | profiles | models.py | [Pep8 CI Link](#) | ✅ | None. |
 | profiles | tests.py | [Pep8 CI Link](#) | 🔶 | None. |
 | profiles | urls.py | [Pep8 CI Link](#) | ✅ | None. |

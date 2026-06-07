@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class GameEntry(models.Model):
     """
     Represents a game library entry for a specific user.
@@ -40,7 +41,7 @@ class GameEntry(models.Model):
     date_started = models.DateField(null=True, blank=True)
     date_completed = models.DateField(null=True, blank=True)
     date_modified = models.DateTimeField(auto_now=True)
-   
 
     def __str__(self):
         return f"{self.title} ({self.get_status_display()})"
+    
