@@ -263,10 +263,13 @@ The “Could Have” features for this iteration were intentionally postponed to
 
 
 ### CSS Validator
- [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all CSS files.
+[CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate CSS files - all errors cleared.
 
-| Page | URL | Status | Screenshot | Validation Link | Notes |
-|------|-----|--------|------------|----------------|-------|
+  <img src="docs/testing/css-validator.png" alt="html validator testing for faq page" width="700">
+
+The following two errors were highlighted and fixed under commit 3ef2cbb:
+- 423	.profile-poster	Value Error : width only 0 can be a unit. You must put a unit after your number : 100
+- 426	.profile-poster	x is not a border-radius value : x
 
 
 ### JavaScript Validator
