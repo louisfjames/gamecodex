@@ -309,7 +309,7 @@ Quality assurance:
 | profiles | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/models.py) | ✅ | Fix to spacing required (f99058e) - now fixed. |
 | profiles | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/tests.py) | 🔶 | None. |
 | profiles | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/urls.py) | ✅ | None. |
-| profiles | views.py | [Pep8 CI Link](#) | ✅ | Fix to spacing required and line length across multiple functions (4725faa, X, X) - now fixed.|
+| profiles | views.py | [Pep8 CI Link](#) | ✅ | Fix to spacing required and line length across multiple functions (4725faa, 9acff50, X) - now fixed.|
 | gamecodex | asgi.py | [Pep8 CI Link](#) | ✅ | None.|
 | gamecodex | settings.py | [Pep8 CI Link](#) | ✅ | None.|
 | gamecodex | urls.py | [Pep8 CI Link](#) | ✅ | None.|

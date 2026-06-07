@@ -228,7 +228,9 @@ def all_entries_view(request):
     # Attach readable platform names
     for entry in page_obj:
         if entry.platform and entry.platform.isdigit():
-            entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
+            entry.platform_name = PLATFORM_LOOKUP.get(
+                int(entry.platform), entry.platform
+            )
         else:
             entry.platform_name = entry.platform
 
@@ -236,14 +238,22 @@ def all_entries_view(request):
     status_choices = GameEntry._meta.get_field("status").choices
 
     # Category count
-    playing_count = GameEntry.objects.filter(user=request.user, status="playing").count()
-    completed_count = GameEntry.objects.filter(user=request.user, status="completed").count()
-    backlog_count = GameEntry.objects.filter(user=request.user, status="backlog").count()
-    abandoned_count = GameEntry.objects.filter(user=request.user, status="abandoned").count()
+    playing_count = GameEntry.objects.filter(
+        user=request.user, status="playing"
+    ).count()
+    completed_count = GameEntry.objects.filter(
+        user=request.user, status="completed"
+    ).count()
+    backlog_count = GameEntry.objects.filter(
+        user=request.user, status="backlog"
+    ).count()
+    abandoned_count = GameEntry.objects.filter(
+        user=request.user, status="abandoned"
+    ).count()
 
     return render(request, "profiles/all_entries.html", {
-        "entries": page_obj, 
-        "status_choices": status_choices, 
+        "entries": page_obj,
+        "status_choices": status_choices,
         "current_status": status,
         "page_obj": page_obj,
         "playing_count": playing_count,
