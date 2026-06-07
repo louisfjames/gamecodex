@@ -5,6 +5,7 @@ import requests
 IGDB API integration for GameCodex.
 
 Handles game search requests, platform filtering, and API communication.
+PLATFORM_IDS is used to filter search results by platform group.
 Platform IDs are mapped locally via PLATFORM_LOOKUP to avoid extra API calls
 and maintain consistent naming conventions.
 """

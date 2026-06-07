@@ -295,17 +295,19 @@ Quality assurance:
 | core | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/apps.py) | ✅ | None. |
 | core | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/models.py) | ✅ | None. |
 | core | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/tests.py) | 🔶 | None. |
-| core | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/views.py) | ✅ | Fix to spcaing required (4f67fd3) - now fixed. |
+| core | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/views.py) | ✅ | Fix to spacing required (4f67fd3) - now fixed. |
 | games | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/admin.py) | ✅ | None. |
 | games | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/apps.py) | ✅ | None. |
 | games | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/models.py) | ✅ | None. |
 | games | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/tests.py) | 🔶 | None. |
-| games | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/views.py) | ✅ | None.|
-| games | igdb.py | [Pep8 CI Link](#) | ✅ | None.|
-| profiles | admin.py | [Pep8 CI Link](#) | ✅ | None. |
-| profiles | apps.py | [Pep8 CI Link](#) | ✅ | None. |
+| games | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/views.py) | ✅ | Fix to spacing and line length required (c59c6b1) - now fixed.|
+| games | igdb.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/services/igdb.py) | ✅ | Fix to spacing required and line length (a250812) - now fixed. |
+| profiles | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/admin.py) | ✅ | None. |
+| profiles | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/apps.py) | ✅ | None. |
+| profiles | forms.py | [Pep8 CI Link](#) | ✅ | None. |
 | profiles | models.py | [Pep8 CI Link](#) | ✅ | None. |
 | profiles | tests.py | [Pep8 CI Link](#) | 🔶 | None. |
+| profiles | urls.py | [Pep8 CI Link](#) | ✅ | None. |
 | profiles | views.py | [Pep8 CI Link](#) | ✅ | None.|
 | gamecodex | asgi.py | [Pep8 CI Link](#) | ✅ | None.|
 | gamecodex | settings.py | [Pep8 CI Link](#) | ✅ | None.|
