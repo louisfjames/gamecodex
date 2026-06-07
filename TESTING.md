@@ -281,11 +281,19 @@ The following two errors were highlighted and fixed under commit 3ef2cbb:
 | spinner.js | ✅ | <img src="docs/testing/jshint-spinner.png" alt="jshint testing for spinner.js" width="400"> | None. |
 
 
-### Python Testing
-TO BE COMPLETED - Potential wording: All Python files validated using multiple tools to ensure comprehensive code quality and PEP8 compliance.
+### Python Linter
+All Python files validated using [PEP8 Code Institute Python Linter](https://pep8ci.herokuapp.com/) to ensure comprehensive code quality and PEP8 compliance.
+
+| Directory | File | URL | Screenshot | Notes |
+|----|----|----|----|----|
+| core | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/views.py) | # | None. |
+| app | #.py | [Pep8 CI Link](#) | # | None. |
 
 
-### Automated Testing
+
+| app | #.py | [Pep8 CI Link](#) | # | None. |
+
+### Automated Testing (Django)
 Automated testing checks code behaviour by running tests through a tool or script rather than by hand. Its key principles are repeatability, consistency, and early detection of errors. Automated tests run the same steps every time, which removes human error and makes it easier to spot issues when new features are added. They are useful for checking functions, input handling, and any part of the code that should always behave in the same way. 
 
 

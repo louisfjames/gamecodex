@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+
 def home(request):
     """
     Render the public home page or redirect authenticated users.
@@ -53,6 +54,7 @@ def handler500(request):
 
 def about(request):
     return render(request, "about.html")
+
 
 def faq(request):
     return render(request, "faq.html")
