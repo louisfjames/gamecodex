@@ -5,12 +5,12 @@
 1. [Testing Approach](#testing-approach)
 2. [Testing Timeline](testing-timeline)
 3. [Manual Testing](#manual-testing)
-4. [Automated Testing](#automated-testing)
-5. [Acceptance Criteria Testing](#acceptance-criteria-testing)
-6. [HTML Validator](#html-validator)
-7. [CSS Validator](#css-validator)
-8. [JavaScript Validator](#javascript-validator)
-9. [Python Testing](#python-testing)
+4. [Acceptance Criteria Testing](#acceptance-criteria-testing)
+5. [HTML Validator](#html-validator)
+6. [CSS Validator](#css-validator)
+7. [JavaScript Validator](#javascript-validator)
+8. [Python Testing](#python-testing)
+9. [Automated Testing](#automated-testing)
 10. [Google Chrome Lighthouse](#google-chrome-lighthouse)
 11. [Bug Fixes](#bug-fixes)
 
@@ -41,7 +41,8 @@ A consistent testing routine was maintained throughout development to ensure eac
 | Iteration 1 testing completed (manual testing + acceptance checks) | 23 May 2026 |
 | Iteration 2 testing completed (manual testing + acceptance checks) | 30 May 2026 |
 | Iteration 3 testing completed (manual testing + acceptance checks) | 6 June 2026 |
-| Final testing phase (automated tests + validator checks) | 7 - X June 2026 |
+| Validator checks (inc. html, css and JS) | 7 June 2026 |
+| X (inc. html, css and JS) | X June 2026 |
 
 
 ### Manual Testing
@@ -190,11 +191,6 @@ Manual testing was carried out at the end of each iteration to ensure that newly
 | Card spacing | Cards maintain consistent spacing across breakpoints | Reviewed search and list pages | Spacing uniform and visually balanced | **✅ PASS** |
 | Final UI sweep | No visual glitches or misaligned elements remain | Performed full-site walkthrough | No remaining UI issues found | **✅ PASS** |
 
-### Automated Testing
-Automated testing checks code behaviour by running tests through a tool or script rather than by hand. Its key principles are repeatability, consistency, and early detection of errors. Automated tests run the same steps every time, which removes human error and makes it easier to spot issues when new features are added. They are useful for checking functions, input handling, and any part of the code that should always behave in the same way. 
-
-
-Automated testing to be added here.
 
 ### Acceptance Criteria Testing
 This table outlines the key user stories and acceptance criteria completed during development. This demonstrates how the website meets the expectations of its target audience and ensures a satisfying user experience. All testing was carried out at the end of each iteration, with each iteration aligned to one of the three development themes to ensure focused, structured progress.
@@ -237,7 +233,7 @@ US 2.2.2 – List Stats on Profile (Could Have) | Stats update automatical
 
 | User Story | Acceptance Criteria | Status | Evidence/Notes |
 |-----------|---------------------|--------| ----------------|
-US 3.1.1 – Clearer Loading States & Errors (Must Have) | Loading indicators appear during API calls, list updates, and page transitions. |**Pass** | Loading spinner added to search; form actions show feedback. |
+US 3.1.1 – Clearer Loading States & Errors (Must Have) | Loading indicators appear during API calls, list updates, and page transitions. | **✅ PASS** | Loading spinner added to search; form actions show feedback. |
 US 3.1.1 – Clearer Loading States & Errors (Must Have) | Error messages use plain language and provide guidance on what to do next. | **✅ PASS** | Validation and API errors now consistent and readable. |
 US 3.1.2 – Improved Visual Clarity & Layout (Should Have) | Spacing, typography, and card layouts follow a consistent visual hierarchy. | **✅ PASS** | Layout refinements applied across forms, cards, and search results. |
 US 3.1.2 – Improved Visual Clarity & Layout (Should Have) | Key actions (add, edit, remove) are clearly visible and easy to access. | **✅ PASS** | Buttons repositioned and aligned for clarity on all devices. |
@@ -256,8 +252,8 @@ The “Could Have” features for this iteration were intentionally postponed to
 |------|-----|--------|------------|----------------|-------|
 | [Landing Page](https://gamecodex-82e1229f4f62.herokuapp.com/) | / | ✅ | <img src="docs/testing/html-validator-landing-page.png" alt="html validator testing for landing page" width="280"> | [Landing Page Result](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgamecodex-82e1229f4f62.herokuapp.com%2F) | None. |
 | [Sign Up Page](https://gamecodex-82e1229f4f62.herokuapp.com/accounts/signup/) | /accounts/signup/ | ✅ | <img src="docs/testing/html-validator-signup-page.png" alt="html validator testing for sign up page" width="280"> | [Sign Up Page Result](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgamecodex-82e1229f4f62.herokuapp.com%2Faccounts%2Fsignup%2F) | The following warning was fixed: This document has heading elements but none of them has a computed heading level of 1 (Commit: 279ed37). The minor HTML validation warnings on the signup page originate from Django’s built‑in form renderer, which automatically outputs help‑text markup that does not fully align with strict W3C nesting rules. Since this markup is generated internally by Django rather than written in my templates, I have not modified it. The issues do not affect accessibility, layout, or functionality, and altering Django’s core rendering for this project would introduce unnecessary complexity without meaningful benefit. |
-| [Login Page](https://gamecodex-82e1229f4f62.herokuapp.com/accounts/login/) | /accounts/login/ | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | The following warning was fixed: This document has heading elements but none of them has a computed heading level of 1 (Commit: 279ed37) |
-| [Profile Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [Login Page](https://gamecodex-82e1229f4f62.herokuapp.com/accounts/login/) | /accounts/login/ | ✅ | <img src="docs/testing/html-validator-login-page.png" alt="html validator testing for login page" width="280"> | [Login Page Result](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgamecodex-82e1229f4f62.herokuapp.com%2Faccounts%2Flogin%2F) | The following warning was fixed: This document has heading elements but none of them has a computed heading level of 1 (Commit: 493b78f). |
+| [Profile Page](https://gamecodex-82e1229f4f62.herokuapp.com/profile/) | /profile/ | ✅ | <img src="docs/testing/html-validator-profile-page.png" alt="html validator testing for profile page" width="280"> | [Profile Page Result](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgamecodex-82e1229f4f62.herokuapp.com%2Fprofile%2F) | No errors or warnings, but "info" message. The “info” message about the trailing slash on the input element is generated by Django’s built‑in form output, and because this markup is produced automatically rather than written in my templates, it isn’t something I can modify directly. |
 | [Search Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
 | [Add Game Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
 | [Edit Game Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
@@ -281,6 +277,13 @@ The “Could Have” features for this iteration were intentionally postponed to
 
 ### Python Testing
 TO BE COMPLETED - Potential wording: All Python files validated using multiple tools to ensure comprehensive code quality and PEP8 compliance.
+
+
+### Automated Testing
+Automated testing checks code behaviour by running tests through a tool or script rather than by hand. Its key principles are repeatability, consistency, and early detection of errors. Automated tests run the same steps every time, which removes human error and makes it easier to spot issues when new features are added. They are useful for checking functions, input handling, and any part of the code that should always behave in the same way. 
+
+
+Automated testing to be added here.
 
 
 ### Google Chrome Lighthouse
