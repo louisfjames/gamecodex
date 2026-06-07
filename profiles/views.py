@@ -27,7 +27,7 @@ def profile_view(request):
         querysets as context.
 
     Context:
-        currently_playing_entries (QuerySet): Up to 3 most recent current 
+        currently_playing_entries (QuerySet): Up to 3 most recent current
         playing games.
         completed_entries (QuerySet): Up to 3 most recent completed games.
         backlog_entries (QuerySet): Up to 3 most recent backlog games.
@@ -83,10 +83,10 @@ def add_game_view(request):
     Display and process the form for adding a new game to the user's library.
 
     On GET, reads game metadata passed as query parameters from the search page
-    and renders a pre-filled form with the title and available platform 
+    and renders a pre-filled form with the title and available platform
     choices.
 
-    On POST, validates the form, checks for duplicate entries, and saves the 
+    On POST, validates the form, checks for duplicate entries, and saves the
     new GameEntry to the database before redirecting to the user's profile.
 
     Parameters:
@@ -135,11 +135,20 @@ def add_game_view(request):
         if form.is_valid():
 
             # Duplicate check
-            duplicate_exists = GameEntry.objects.filter(user=request.user, title=form.cleaned_data["title"], platform=form.cleaned_data["platform"]).exists()
+            duplicate_exists = GameEntry.objects.filter(
+                user=request.user,
+                title=form.cleaned_data["title"],
+                platform=form.cleaned_data["platform"]
+            ).exists()
 
             if duplicate_exists:
-                form.add_error(None, "You've already added this game to your list.")
-                return render(request, "profiles/add_game.html", {"form": form, "cover_id": cover_id, "summary": summary})
+                form.add_error(None,
+                               "You've already added this game to your list.")
+                return render(request, "profiles/add_game.html", {
+                    "form": form,
+                    "cover_id": cover_id,
+                    "summary": summary
+                })
 
             # Save new entry
             entry = form.save(commit=False)
@@ -149,14 +158,22 @@ def add_game_view(request):
 
             # Success message displayed on profile page
             list_name = entry.status.capitalize()
-            messages.success(request, f"'{entry.title}' has been added to your {list_name} list!", extra_tags="game")
+            messages.success(
+                request,
+                f"'{entry.title}' has been added to your {list_name} list!",
+                extra_tags="game"
+            )
 
             return redirect("profile")
     else:
         form = GameEntryForm(initial=initial)
         form.fields["platform"].choices = platform_choices
 
-    return render(request, "profiles/add_game.html", {"form": form, "cover_id": cover_id, "summary": summary,})
+    return render(request, "profiles/add_game.html", {
+        "form": form,
+        "cover_id": cover_id,
+        "summary": summary,
+    })
 
 
 @login_required
@@ -213,7 +230,7 @@ def all_entries_view(request):
         if entry.platform and entry.platform.isdigit():
             entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
         else:
-            entry.platform_name = entry.platform  
+            entry.platform_name = entry.platform
 
     # Get status choices from the model
     status_choices = GameEntry._meta.get_field("status").choices
@@ -223,7 +240,6 @@ def all_entries_view(request):
     completed_count = GameEntry.objects.filter(user=request.user, status="completed").count()
     backlog_count = GameEntry.objects.filter(user=request.user, status="backlog").count()
     abandoned_count = GameEntry.objects.filter(user=request.user, status="abandoned").count()
-
 
     return render(request, "profiles/all_entries.html", {
         "entries": page_obj, 
