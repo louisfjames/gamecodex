@@ -254,6 +254,16 @@ The “Could Have” features for this iteration were intentionally postponed to
 
 | Page | URL | Status | Screenshot | Validation Link | Notes |
 |------|-----|--------|------------|----------------|-------|
+| [Landing Page](https://gamecodex-82e1229f4f62.herokuapp.com/) | / | ✅ | <img src="docs/testing/html-validator-landing-page.png" alt="html validator testing for landing page" width="280"> | [Landing Page Result](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgamecodex-82e1229f4f62.herokuapp.com%2F) | None. |
+| [Sign Up Page](https://gamecodex-82e1229f4f62.herokuapp.com/accounts/signup/) | /accounts/signup/ | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [Login Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [Profile Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [Search Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [Add Game Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [Edit Game Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [All Entries / Gaming Log Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [About Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
+| [FAQ Page](#) | / | ✅ | <img src="docs/testing/html-validator-#-page.png" alt="html validator testing for # page" width="280"> | [# Page Result](#) | None. |
 
 
 ### CSS Validator
@@ -261,6 +271,7 @@ The “Could Have” features for this iteration were intentionally postponed to
 
 | Page | URL | Status | Screenshot | Validation Link | Notes |
 |------|-----|--------|------------|----------------|-------|
+
 
 ### JavaScript Validator
 [JSHint](https://jshint.com/) was used to validate all JS files.
@@ -273,19 +284,18 @@ TO BE COMPLETED - Potential wording: All Python files validated using multiple t
 
 
 ### Google Chrome Lighthouse
-Add performance results
+
 | Page | Desktop Results| Notes |
-|------|-----|--------|
+|------|---------------|------|
 | Landing Page | <img src="docs/testing/lighthouse-landing-page.png" alt="lighthouse testing landing page" width="300">| None. |
 | Signup Page | <img src="docs/testing/lighthouse-sign-up-page.png" alt="lighthouse testing sign up page" width="300"> | None. | 
 | Login Page | <img src="docs/testing/lighthouse-login-page.png" alt="lighthouse testing login page" width="300"> | None. |
 | Profile Page | <img src="docs/testing/lighthouse-profile-page.png" alt="lighthouse testing profile page" width="300"> | None. |
-| Search Page | <img src="docs/testing/lighthouse-#-page.png" alt="lighthouse testing # page" width="300"> | Added aria label to dropdown to improve accessibility. See commit - X. |
-| Add Game Page | <img src="docs/testing/lighthouse-add-game-page.png" alt="lighthouse testing add game page" width="300"> | Added aria labels to form elements to improve accessibility. See commit - X.  |
-| Edit Game Page | <img src="docs/testing/lighthouse-edit-page.png" alt="lighthouse testing edit page" width="300"> | Added aria labels to form elements to improve accessibility. See commit - X.  |
-| All Entries / Gaming Log Page | <img src="docs/testing/lighthouse-entries-page.png" alt="lighthouse testing gaming log / entries page" width="300"> |  |
+| Search Page | <img src="docs/testing/lighthouse-search-page.png" alt="lighthouse testing search page" width="300"> | Added aria label to dropdown to improve accessibility. See commit - 03d1da7. |
+| Add Game Page | <img src="docs/testing/lighthouse-add-game-page.png" alt="lighthouse testing add game page" width="300"> | Added aria labels to form elements to improve accessibility. See commit - 03d1da7.  |
+| Edit Game Page | <img src="docs/testing/lighthouse-edit-page.png" alt="lighthouse testing edit page" width="300"> | Added aria labels to form elements to improve accessibility. See commit - 03d1da7.  |
+| All Entries / Gaming Log Page | <img src="docs/testing/lighthouse-entries-page.png" alt="lighthouse testing gaming log / entries page" width="300"> | None. |
 
-Analysis performance results
 
 ### Bug Fixes
 This section documents the issues found during development and how each one was resolved. It provides a clear record of problems and fixes highlighted during manual testing.
