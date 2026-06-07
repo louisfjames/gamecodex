@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
+
 from .forms import GameEntryForm
 from .models import GameEntry
 from games.services.igdb import PLATFORM_LOOKUP
-from django.contrib import messages
-from django.views.decorators.http import require_POST
-from django.core.paginator import Paginator
 
 
 @login_required
@@ -26,24 +27,41 @@ def profile_view(request):
         querysets as context.
 
     Context:
-        currently_playing_entries (QuerySet): Up to 3 most recent playing entries.
-        completed_entries (QuerySet): Up to 3 most recent completed entries.
-        backlog_entries (QuerySet): Up to 3 most recent backlog entries.
-        abandoned_entries (QuerySet): Up to 3 most recent abandoned entries.
+        currently_playing_entries (QuerySet): Up to 3 most recent current 
+        playing games.
+        completed_entries (QuerySet): Up to 3 most recent completed games.
+        backlog_entries (QuerySet): Up to 3 most recent backlog games.
+        abandoned_entries (QuerySet): Up to 3 most recent abandoned games.
     """
     user = request.user
-    
+
     entries = GameEntry.objects.filter(user=user)
 
-    currently_playing_entries = entries.filter(status="playing").order_by("-date_modified")[:3]
-    completed_entries = entries.filter(status="completed").order_by("-date_modified")[:3]
-    backlog_entries = entries.filter(status="backlog").order_by("-date_modified")[:3]
-    abandoned_entries = entries.filter(status="abandoned").order_by("-date_modified")[:3]
+    currently_playing_entries = (
+        entries.filter(status="playing").order_by("-date_modified")[:3]
+    )
+    completed_entries = (
+        entries.filter(status="completed").order_by("-date_modified")[:3]
+    )
+    backlog_entries = (
+        entries.filter(status="backlog").order_by("-date_modified")[:3]
+    )
+    abandoned_entries = (
+        entries.filter(status="abandoned").order_by("-date_modified")[:3]
+    )
 
-    playing_count = GameEntry.objects.filter(user=request.user, status="playing").count()
-    completed_count = GameEntry.objects.filter(user=request.user, status="completed").count()
-    backlog_count = GameEntry.objects.filter(user=request.user, status="backlog").count()
-    abandoned_count = GameEntry.objects.filter(user=request.user, status="abandoned").count()
+    playing_count = GameEntry.objects.filter(
+        user=request.user, status="playing"
+    ).count()
+    completed_count = GameEntry.objects.filter(
+        user=request.user, status="completed"
+    ).count()
+    backlog_count = GameEntry.objects.filter(
+        user=request.user, status="backlog"
+    ).count()
+    abandoned_count = GameEntry.objects.filter(
+        user=request.user, status="abandoned"
+    ).count()
 
     context = {
         "currently_playing_entries": currently_playing_entries,
@@ -65,9 +83,11 @@ def add_game_view(request):
     Display and process the form for adding a new game to the user's library.
 
     On GET, reads game metadata passed as query parameters from the search page
-    and renders a pre-filled form with the title and available platform choices.
-    On POST, validates the form, checks for duplicate entries, and saves the new
-    GameEntry to the database before redirecting to the user's profile.
+    and renders a pre-filled form with the title and available platform 
+    choices.
+
+    On POST, validates the form, checks for duplicate entries, and saves the 
+    new GameEntry to the database before redirecting to the user's profile.
 
     Parameters:
         request (HttpRequest): The incoming HTTP request. On GET, expects the
@@ -113,8 +133,8 @@ def add_game_view(request):
         form.fields["platform"].choices = platform_choices
 
         if form.is_valid():
-            
-            # Duplicate check 
+
+            # Duplicate check
             duplicate_exists = GameEntry.objects.filter(user=request.user, title=form.cleaned_data["title"], platform=form.cleaned_data["platform"]).exists()
 
             if duplicate_exists:
@@ -126,7 +146,7 @@ def add_game_view(request):
             entry.user = request.user
             entry.cover_id = cover_id
             entry.save()
-            
+
             # Success message displayed on profile page
             list_name = entry.status.capitalize()
             messages.success(request, f"'{entry.title}' has been added to your {list_name} list!", extra_tags="game")
@@ -168,7 +188,7 @@ def all_entries_view(request):
         current_status (str or None): The currently active status filter,
             or None if no filter is applied.
     """
-    
+
     # Read status from the URL
     status = request.GET.get("status")
 
@@ -264,14 +284,14 @@ def edit_entry(request, entry_id):
     """
 
     entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
-    
+
     platform_choices = [(pid, name) for pid, name in PLATFORM_LOOKUP.items()]
-    
+
     if request.method == "POST":
         form = GameEntryForm(request.POST, instance=entry)
         form.fields.pop("title", None)
         form.fields.pop("platform", None)
-        
+
         if form.is_valid():
             game_entry = form.save(commit=False)
             game_entry.title = entry.title

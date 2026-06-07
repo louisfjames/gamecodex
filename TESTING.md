@@ -38,11 +38,12 @@ A consistent testing routine was maintained throughout development to ensure eac
 | Phase  | Date |
 |------------------------------------------------------------------|---------------|
 | Project initiated | 8 May 2026 |
-| Iteration 1 testing completed (manual testing + acceptance checks) | 23 May 2026 |
-| Iteration 2 testing completed (manual testing + acceptance checks) | 30 May 2026 |
-| Iteration 3 testing completed (manual testing + acceptance checks) | 6 June 2026 |
-| Validator checks (inc. html, css and JS) | 7 June 2026 |
-| X (inc. html, css and JS) | X June 2026 |
+| Iteration 1 testing (manual testing + acceptance checks) | 23 May 2026 |
+| Iteration 2 testing (manual testing + acceptance checks) | 30 May 2026 |
+| Iteration 3 testing (manual testing + acceptance checks) | 6 June 2026 |
+| Google lighthouse audit testing | 6 June 2026 |
+| Validator and linter checks (HTML, CSS, JS, Python) | 7 June 2026 |
+| Automated testing | X June 2026 |
 
 
 ### Manual Testing
@@ -305,9 +306,9 @@ Quality assurance:
 | profiles | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/admin.py) | ✅ | None. |
 | profiles | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/apps.py) | ✅ | None. |
 | profiles | forms.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/forms.py) | ✅ | Fix to spacing required and line length (4890df9) - now fixed.  |
-| profiles | models.py | [Pep8 CI Link](#) | ✅ | None. |
-| profiles | tests.py | [Pep8 CI Link](#) | 🔶 | None. |
-| profiles | urls.py | [Pep8 CI Link](#) | ✅ | None. |
+| profiles | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/models.py) | ✅ | Fix to spacing required (f99058e) - now fixed. |
+| profiles | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/tests.py) | 🔶 | None. |
+| profiles | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/urls.py) | ✅ | None. |
 | profiles | views.py | [Pep8 CI Link](#) | ✅ | None.|
 | gamecodex | asgi.py | [Pep8 CI Link](#) | ✅ | None.|
 | gamecodex | settings.py | [Pep8 CI Link](#) | ✅ | None.|
