@@ -1,6 +1,14 @@
 import os
 import requests
 
+"""
+IGDB API integration for GameCodex.
+
+Handles game search requests, platform filtering, and API communication.
+Platform IDs are mapped locally via PLATFORM_LOOKUP to avoid extra API calls
+and maintain consistent naming conventions.
+"""
+
 CLIENT_ID = os.environ.get("IGDB_CLIENT_ID")
 ACCESS_TOKEN = os.environ.get("IGDB_ACCESS_TOKEN")
 
