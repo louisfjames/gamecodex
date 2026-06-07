@@ -274,11 +274,13 @@ def remove_entry(request, entry_id):
     redirected back to the full entries list.
 
     Parameters:
-        request (HttpRequest): The incoming HTTP request. Must be a POST request.
+        request (HttpRequest): The incoming HTTP request. Must be a POST
+        request.
         entry_id (int): The ID of the GameEntry to delete.
 
     Returns:
-        HttpResponse: A redirect to the entries list after a successful deletion.
+        HttpResponse: A redirect to the entries list after a successful
+        deletion.
     """
 
     entry = get_object_or_404(GameEntry, id=entry_id, user=request.user)
@@ -323,12 +325,21 @@ def edit_entry(request, entry_id):
             game_entry.title = entry.title
             game_entry.platform = entry.platform
             game_entry.save()
-            messages.success(request, f"'{entry.title}' has been updated.", extra_tags="game")
+            messages.success(
+                request,
+                f"'{entry.title}' has been updated.",
+                extra_tags="game"
+            )
             return redirect("all_entries")
     else:
         form = GameEntryForm(instance=entry)
         form.fields["platform"].choices = platform_choices
         form.fields["platform"].widget.attrs["disabled"] = True
 
-    entry.platform_name = PLATFORM_LOOKUP.get(int(entry.platform), entry.platform)
-    return render(request, "profiles/edit_entry.html", {"form": form, "entry": entry})
+    entry.platform_name = PLATFORM_LOOKUP.get(
+        int(entry.platform), entry.platform
+    )
+    return render(request, "profiles/edit_entry.html", {
+        "form": form,
+        "entry": entry
+    })
