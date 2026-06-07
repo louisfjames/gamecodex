@@ -5,9 +5,12 @@ CLIENT_ID = os.environ.get("IGDB_CLIENT_ID")
 ACCESS_TOKEN = os.environ.get("IGDB_ACCESS_TOKEN")
 
 PLATFORM_IDS = {
-    "PlayStation": [7, 8, 9, 48, 167, 38, 39, 46, 508], # IGDB IDs for PS1 to PS5 and handheld (PSP & Vita)
-    "Xbox": [11, 12, 49, 169], # IGDB IDs for Xbox to Series X/S
-    "Nintendo": [130, 41, 5, 21, 4, 19, 18, 20, 37], # IGDB IDs for NES to Switch and handheld (DS & 3DS)
+    # IGDB IDs for PS1 to PS5 and handheld (PSP & Vita)
+    "PlayStation": [7, 8, 9, 48, 167, 38, 39, 46, 508],
+    # IGDB IDs for Xbox to Series X/S
+    "Xbox": [11, 12, 49, 169],
+    # IGDB IDs for NES to Switch and handheld (DS & 3DS)
+    "Nintendo": [130, 41, 5, 21, 4, 19, 18, 20, 37],
     "PC": [6],
 }
 
@@ -42,7 +45,7 @@ PLATFORM_LOOKUP = {
     53: "PC (Windows)",
     14: "Mac",
     3: "Linux",
-    
+
     170: "Stadia",
     123: "WonderSwan Color",
     55: "Mobile",
@@ -50,6 +53,7 @@ PLATFORM_LOOKUP = {
     72: "Commodore 64",
     74: "ZX Spectrum",
 }
+
 
 def search_games(query, platform=None, offset=0):
     """
@@ -83,14 +87,19 @@ def search_games(query, platform=None, offset=0):
 
     # Input Validation
     if not query or len(query.strip()) < 2:
-        return {"error": "Search term must be at least 2 characters.", "results": []}
+        return {"error": "Search term must be at least 2 characters.",
+                "results": []}
 
     # Credential Validation
     if not CLIENT_ID or not ACCESS_TOKEN:
         return {"error": "IGDB credentials missing.", "results": []}
-        
+
     # Base APICalypse Query
-    query_string = (f'search "{query}"; fields name, cover.image_id, platforms, summary, total_rating, rating;')
+    query_string = (
+        f'search "{query}"; '
+        f"fields name, cover.image_id, "
+        f"platforms, summary, total_rating, rating;"
+        )
 
     # Platform filtering
     if platform and platform in PLATFORM_IDS:
@@ -110,7 +119,9 @@ def search_games(query, platform=None, offset=0):
 
     # API Request Error Handling
     try:
-        response = requests.post(url, headers=headers, data=query_string, timeout=5)
+        response = requests.post(
+            url, headers=headers, data=query_string, timeout=5
+        )
 
         if response.status_code != 200:
             return {
@@ -131,6 +142,6 @@ def search_games(query, platform=None, offset=0):
 
     except requests.exceptions.RequestException:
         return {
-            "error": "Network error contacting IGDB.", 
+            "error": "Network error contacting IGDB.",
             "results": []
         }

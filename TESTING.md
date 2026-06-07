@@ -299,17 +299,18 @@ Quality assurance:
 | games | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/admin.py) | ✅ | None. |
 | games | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/apps.py) | ✅ | None. |
 | games | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/models.py) | ✅ | None. |
-| games | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/tests.py) | ✅ | None. |
-| games | views.py | [Pep8 CI Link](#) | ✅ | None.|
+| games | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/tests.py) | 🔶 | None. |
+| games | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/views.py) | ✅ | None.|
+| games | igdb.py | [Pep8 CI Link](#) | ✅ | None.|
 | profiles | admin.py | [Pep8 CI Link](#) | ✅ | None. |
 | profiles | apps.py | [Pep8 CI Link](#) | ✅ | None. |
 | profiles | models.py | [Pep8 CI Link](#) | ✅ | None. |
-| profiles | tests.py | [Pep8 CI Link](#) | ✅ | None. |
+| profiles | tests.py | [Pep8 CI Link](#) | 🔶 | None. |
 | profiles | views.py | [Pep8 CI Link](#) | ✅ | None.|
-| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
-| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
-| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
-| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | asgi.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | settings.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | urls.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | wsgi.py | [Pep8 CI Link](#) | ✅ | None.|
 
 MUST UPDATE THIS AFTER THE AUTOMATED TESTING IN DJANGO IS COMPLETE
 
