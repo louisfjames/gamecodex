@@ -273,10 +273,13 @@ The following two errors were highlighted and fixed under commit 3ef2cbb:
 
 
 ### JavaScript Validator
-[JSHint](https://jshint.com/) was used to validate all JS files.
+[JSHint](https://jshint.com/) was used to validate all JS files - no errors found.
 
-| File | Status | JSHint Screenshot | ESLint Screenshot | Notes |
-|-----|--------|-------|-------|-------|
+| File | Status | JSHint Screenshot | Notes |
+|-----|--------|--------------|-----|
+| remove_entry_modal.js | ✅ | <img src="docs/testing/jshint-remove-modal.png" alt="jshint testing for remove_entry_modal.js" width="400"> | None. |
+| spinner.js | ✅ | <img src="docs/testing/jshint-spinner.png" alt="jshint testing for spinner.js" width="400"> | None. |
+
 
 ### Python Testing
 TO BE COMPLETED - Potential wording: All Python files validated using multiple tools to ensure comprehensive code quality and PEP8 compliance.

@@ -1,3 +1,5 @@
+// Populate the remove entry modal form action with the entry URL from the triggering button
+
 document.addEventListener('DOMContentLoaded', function () {
   const removeModal = document.getElementById('removeEntryModal');
   if (!removeModal) return;
