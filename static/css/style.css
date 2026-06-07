@@ -420,10 +420,9 @@ body {
 }
 
 .profile-poster {
-    width: 100;
     height: 115px;
     object-fit: cover;
-    border-radius: x;
+    border-radius: 5px;
     display: block;
 }
 
