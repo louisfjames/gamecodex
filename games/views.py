@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .services.igdb import search_games, PLATFORM_LOOKUP
 
+
 def search_view(request):
     """
     Handle game search requests and render the search results page.
@@ -20,7 +21,7 @@ def search_view(request):
         HttpResponse: The rendered search page with the query, platform filter,
         any API error, and the list of matching game results.
     """
-    
+
     query = request.GET.get("q", "")
     platform = request.GET.get("platform")
     page = int(request.GET.get("page", 1))
@@ -32,9 +33,10 @@ def search_view(request):
 
         for g in response["results"]:
             g["platform_names"] = [
-                PLATFORM_LOOKUP.get(pid, f"ID {pid}") for pid in g.get("platforms", [])
+                PLATFORM_LOOKUP.get(pid, f"ID {pid}")
+                for pid in g.get("platforms", [])
             ]
-            
+
     return render(request, "games/search.html", {
         "query": query,
         "platform": platform,

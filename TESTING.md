@@ -284,12 +284,34 @@ The following two errors were highlighted and fixed under commit 3ef2cbb:
 ### Python Linter
 All Python files validated using [PEP8 Code Institute Python Linter](https://pep8ci.herokuapp.com/) to ensure comprehensive code quality and PEP8 compliance.
 
-| Directory | File | URL | Screenshot | Notes |
+Quality assurance:
+- Docstrings
+- Import organization: Django imports → third-party → local imports
+- Line length: 79 characters
+
+| App | File | URL | Status | Notes |
 |----|----|----|----|----|
-| core | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/views.py) | # | None. |
-| app | #.py | [Pep8 CI Link](#) | # | None. |
+| core | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/admin.py) | ✅ | None. |
+| core | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/apps.py) | ✅ | None. |
+| core | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/models.py) | ✅ | None. |
+| core | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/tests.py) | 🔶 | None. |
+| core | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/views.py) | ✅ | Fix to spcaing required (4f67fd3) - now fixed. |
+| games | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/admin.py) | ✅ | None. |
+| games | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/apps.py) | ✅ | None. |
+| games | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/models.py) | ✅ | None. |
+| games | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/tests.py) | ✅ | None. |
+| games | views.py | [Pep8 CI Link](#) | ✅ | None.|
+| profiles | admin.py | [Pep8 CI Link](#) | ✅ | None. |
+| profiles | apps.py | [Pep8 CI Link](#) | ✅ | None. |
+| profiles | models.py | [Pep8 CI Link](#) | ✅ | None. |
+| profiles | tests.py | [Pep8 CI Link](#) | ✅ | None. |
+| profiles | views.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | views.py | [Pep8 CI Link](#) | ✅ | None.|
 
-
+MUST UPDATE THIS AFTER THE AUTOMATED TESTING IN DJANGO IS COMPLETE
 
 | app | #.py | [Pep8 CI Link](#) | # | None. |
 
