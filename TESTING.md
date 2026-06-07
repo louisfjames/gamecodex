@@ -285,10 +285,10 @@ The following two errors were highlighted and fixed under commit 3ef2cbb:
 ### Python Linter
 All Python files validated using [PEP8 Code Institute Python Linter](https://pep8ci.herokuapp.com/) to ensure comprehensive code quality and PEP8 compliance.
 
-Quality assurance:
-- Docstrings
-- Import organization: Django imports → third-party → local imports
-- Line length: 79 characters
+As part of the testing process, quality assurance checks were conducted across all project files, covering the following:
+- **Docstrings**: All views, functions, and modules include descriptive docstrings.
+- **Import organisation**: Imports are ordered consistently — standard library, Django, third-party, then local imports.
+- **Line length**: All lines adhere to the PEP 8 maximum of 79 characters.
 
 | App | File | URL | Status | Notes |
 |----|----|----|----|----|
@@ -311,8 +311,8 @@ Quality assurance:
 | profiles | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/urls.py) | ✅ | None. |
 | profiles | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/views.py) | ✅ | Fix to spacing required and line length across multiple functions (4725faa, 9acff50, 14ca59a & 16313be) - now all fixed.|
 | gamecodex | asgi.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/asgi.py) | ✅ | None.|
-| gamecodex | settings.py | [Pep8 CI Link](#) | ✅ | None.|
-| gamecodex | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/urls.py) | ✅ | None.|
+| gamecodex | settings.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/settings.py) | ✅ | Fix to spacing required and line length across multiple files (d853758) - now all fixed. |
+| gamecodex | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/urls.py) | ✅ | Fix to spacing required and line length across multiple files (d853758) - now all fixed.|
 | gamecodex | wsgi.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/wsgi.py) | ✅ | None.|
 
 MUST UPDATE THIS AFTER THE AUTOMATED TESTING IN DJANGO IS COMPLETE
