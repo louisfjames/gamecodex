@@ -309,11 +309,11 @@ Quality assurance:
 | profiles | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/models.py) | ✅ | Fix to spacing required (f99058e) - now fixed. |
 | profiles | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/tests.py) | 🔶 | None. |
 | profiles | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/urls.py) | ✅ | None. |
-| profiles | views.py | [Pep8 CI Link](#) | ✅ | Fix to spacing required and line length across multiple functions (4725faa, 9acff50, 14ca59a) - now all fixed.|
-| gamecodex | asgi.py | [Pep8 CI Link](#) | ✅ | None.|
+| profiles | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/views.py) | ✅ | Fix to spacing required and line length across multiple functions (4725faa, 9acff50, 14ca59a & 16313be) - now all fixed.|
+| gamecodex | asgi.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/asgi.py) | ✅ | None.|
 | gamecodex | settings.py | [Pep8 CI Link](#) | ✅ | None.|
-| gamecodex | urls.py | [Pep8 CI Link](#) | ✅ | None.|
-| gamecodex | wsgi.py | [Pep8 CI Link](#) | ✅ | None.|
+| gamecodex | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/urls.py) | ✅ | None.|
+| gamecodex | wsgi.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/wsgi.py) | ✅ | None.|
 
 MUST UPDATE THIS AFTER THE AUTOMATED TESTING IN DJANGO IS COMPLETE
 
