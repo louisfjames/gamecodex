@@ -44,7 +44,7 @@ A consistent testing routine was maintained throughout development to ensure eac
 | Iteration 3 testing (manual testing + acceptance criteria checks) | 6 June 2026 |
 | Google lighthouse audit testing | 6 June 2026 |
 | Validator and linter checks (HTML, CSS, JS, Python) | 7 June 2026 |
-| Automated testing via Django | X June 2026 |
+| Automated testing via Django | 8 June 2026 |
 
 Throughout the project I carried out manual testing and acceptance criteria testing at the end of every iteration to ensure that each feature was validated as it was developed. However, I introduced automated testing later in the process rather than incorporating it from the beginning. While this did not affect the reliability of the final product, it highlighted an area for improvement in my workflow. For future projects, I will ensure that automated tests are implemented earlier and run alongside manual testing throughout development to provide stronger continuous validation and faster feedback.
 
@@ -297,27 +297,25 @@ As part of the testing process, quality assurance checks were conducted across a
 | core | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/admin.py) | ✅ | None. |
 | core | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/apps.py) | ✅ | None. |
 | core | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/models.py) | ✅ | None. |
-| core | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/tests.py) | 🔶 | None. |
 | core | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/core/views.py) | ✅ | Fix to spacing required (4f67fd3) - now fixed. |
 | games | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/admin.py) | ✅ | None. |
 | games | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/apps.py) | ✅ | None. |
 | games | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/models.py) | ✅ | None. |
-| games | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/tests.py) | 🔶 | None. |
+| games | test_views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/test_views.py) | ✅ | None. |
 | games | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/views.py) | ✅ | Fix to spacing and line length required (c59c6b1) - now fixed.|
 | games | igdb.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/games/services/igdb.py) | ✅ | Fix to spacing required and line length (a250812) - now fixed. |
 | profiles | admin.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/admin.py) | ✅ | None. |
 | profiles | apps.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/apps.py) | ✅ | None. |
 | profiles | forms.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/forms.py) | ✅ | Fix to spacing required and line length (4890df9) - now fixed.  |
 | profiles | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/models.py) | ✅ | Fix to spacing required (f99058e) - now fixed. |
-| profiles | tests.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/tests.py) | 🔶 | None. |
+| profiles | test_forms.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/test_forms.py) | ✅ | None. |
+| profiles | test_views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/test_views.py) | 🔶 | None. |
 | profiles | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/urls.py) | ✅ | None. |
 | profiles | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/views.py) | ✅ | Fix to spacing required and line length across multiple functions (4725faa, 9acff50, 14ca59a & 16313be) - now all fixed.|
 | gamecodex | asgi.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/asgi.py) | ✅ | None.|
 | gamecodex | settings.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/settings.py) | ✅ | Fix to spacing required and line length across multiple files (d853758) - now all fixed. |
 | gamecodex | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/urls.py) | ✅ | Fix to spacing required and line length across multiple files (d853758) - now all fixed.|
 | gamecodex | wsgi.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/wsgi.py) | ✅ | None.|
-
-MUST UPDATE THIS AFTER THE AUTOMATED TESTING IN DJANGO IS COMPLETE
 
 
 ### Automated Testing via Django
@@ -332,6 +330,8 @@ in each app was removed and replaced with separate `test_forms.py` and `test_vie
 | App | File | Description | Status | Screenshot |
 |----|----|----|----|----|
 | Games | test_views.py | Five automated tests were written for the `games` app's search view, covering page load, empty query handling, valid search results, API error propagation, and platform filtering. All five tests passed successfully. | ✅ - No errors found. | <img src="docs/testing/automated-testing-games-views.png" alt="automated testing for views in games app"> |
+| Profiles | test_forms.py | Eleven automated tests were written for the `profiles` app's form validation, covering all six date and status rules defined in `GameEntryForm`. Both valid and invalid scenarios were tested for each rule. All eleven tests passed successfully. | ✅ - No errors found. | <img src="docs/testing/automated-testing-profile-forms.png" alt="automated testing for forms in profile app"> |
+| Profiles | test_views.py | # | 🔶 | <img src="docs/testing/automated-testing-#.png" alt="automated testing for views in profile app"> |
 
 The IGDB service module (`games/services/igdb.py`) was tested manually via the Django shell which coveredg valid searches, short query rejection, missing credentials, and network error handling. Details of how this testing was completed is documented in the [IGDB API Search](https://github.com/louisfjames/gamecodex#defensive-design) section.
 

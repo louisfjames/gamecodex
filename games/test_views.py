@@ -56,7 +56,9 @@ class SearchViewTests(TestCase):
 
     @patch('games.views.search_games')
     def test_platform_filter_passed_to_search(self, mock_search):
-        """Platform filter is passed to search_games and returned in context."""
+        """
+        Platform filter is passed to search_games and returned in context.
+        """
         mock_search.return_value = {"error": None, "results": []}
         response = self.client.get(
             reverse('search'), {'q': 'zelda', 'platform': 'Nintendo'}
