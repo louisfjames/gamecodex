@@ -1,4 +1,4 @@
-# GameCodex - Testing Documentation
+# *GameCodex* - Testing Documentation
 
 ## Table of Contents
 
@@ -9,7 +9,7 @@
 5. [HTML Validator](#html-validator)
 6. [CSS Validator](#css-validator)
 7. [JavaScript Validator](#javascript-validator)
-8. [Python Testing](#python-testing)
+8. [Python Linter](#python-linter)
 9. [Automated Testing](#automated-testing)
 10. [Google Chrome Lighthouse](#google-chrome-lighthouse)
 11. [Bug Fixes](#bug-fixes)
@@ -38,13 +38,15 @@ A consistent testing routine was maintained throughout development to ensure eac
 | Phase  | Date |
 |------------------------------------------------------------------|---------------|
 | Project initiated | 8 May 2026 |
-| Iteration 1 testing (manual testing + acceptance checks) | 23 May 2026 |
-| Iteration 2 testing (manual testing + acceptance checks) | 30 May 2026 |
-| Iteration 3 testing (manual testing + acceptance checks) | 6 June 2026 |
+| API manual testing via Django shell (see [IGDB API Search](https://github.com/louisfjames/gamecodex#defensive-design) ) | 13 May 2026 |
+| Iteration 1 testing (manual testing + acceptance criteria checks) | 23 May 2026 |
+| Iteration 2 testing (manual testing + acceptance criteria checks) | 30 May 2026 |
+| Iteration 3 testing (manual testing + acceptance criteria checks) | 6 June 2026 |
 | Google lighthouse audit testing | 6 June 2026 |
 | Validator and linter checks (HTML, CSS, JS, Python) | 7 June 2026 |
-| Automated testing | X June 2026 |
+| Automated testing via Django | X June 2026 |
 
+Throughout the project I carried out manual testing and acceptance criteria testing at the end of every iteration to ensure that each feature was validated as it was developed. However, I introduced automated testing later in the process rather than incorporating it from the beginning. While this did not affect the reliability of the final product, it highlighted an area for improvement in my workflow. For future projects, I will ensure that automated tests are implemented earlier and run alongside manual testing throughout development to provide stronger continuous validation and faster feedback.
 
 ### Manual Testing
 Behaviour driven development was used to guide the testing process. This method focuses on how a user expects a feature to behave and the aim is to check that the site behaves in a clear and predictable way. It also helps keep the focus on user needs rather than only on technical checks. These principles are met in the manual testing because each test follows a simple action and a clear expected result, and each one checks behaviour that matters to the user such as navigation, searching, loading data, and viewing festival details. Each feature was tested by hand to confirm that it worked as expected. This type of testing is useful because it shows how the site performs in real use and it helps find issues that automated tools may not detect. 
@@ -264,7 +266,7 @@ The “Could Have” features for this iteration were intentionally postponed to
 
 
 ### CSS Validator
-[CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate CSS files - all errors cleared.
+[CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) was used to validate CSS files - no errors remain.
 
   <img src="docs/testing/css-validator.png" alt="html validator testing for faq page" width="700">
 
@@ -287,7 +289,7 @@ All Python files validated using [PEP8 Code Institute Python Linter](https://pep
 
 As part of the testing process, quality assurance checks were conducted across all project files, covering the following:
 - **Docstrings**: All views, functions, and modules include descriptive docstrings.
-- **Import organisation**: Imports are ordered consistently — standard library, Django, third-party, then local imports.
+- **Import organisation**: Imports are ordered consistently - standard library, Django, third-party, then local imports.
 - **Line length**: All lines adhere to the PEP 8 maximum of 79 characters.
 
 | App | File | URL | Status | Notes |
@@ -317,14 +319,21 @@ As part of the testing process, quality assurance checks were conducted across a
 
 MUST UPDATE THIS AFTER THE AUTOMATED TESTING IN DJANGO IS COMPLETE
 
-| app | #.py | [Pep8 CI Link](#) | # | None. |
 
-### Automated Testing (Django)
+### Automated Testing via Django
 Automated testing checks code behaviour by running tests through a tool or script rather than by hand. Its key principles are repeatability, consistency, and early detection of errors. Automated tests run the same steps every time, which removes human error and makes it easier to spot issues when new features are added. They are useful for checking functions, input handling, and any part of the code that should always behave in the same way. 
 
+Automated test were run using [Django test framework](https://docs.djangoproject.com/en/6.0/topics/testing/) via `python manage.py`. These tests focused on areas of highest complexity and user-facing impact. Rather than targeting full coverage, tests were prioritised for the most critical logic: form validation in `profiles/forms.py`, which contains the date and status rules for game entries, and the views in `profiles/views.py` and `games/views.py`, which handle form submission, duplicate checking, and IGDB search functionality. This approach ensures the core user journeys and business logic are verified, while remaining proportionate for a project of this scale.
 
-Automated testing to be added here.
+Before writing automated tests, initial setup was required. The `import sys` statement and a conditional database block were added to `settings.py` to ensure
+tests run against a local database rather than the production database which improves speed and avoiding any risk to live data. The default `tests.py` file
+in each app was removed and replaced with separate `test_forms.py` and `test_views.py` files to keep tests organised by type. Each test file uses Django's `TestCase` class with a `setUp` method that creates a test user and logs them in before each test runs, providing the authenticated context required by the majority of the project's views.
 
+| App | File | Description | Status | Screenshot |
+|----|----|----|----|----|
+| Games | test_views.py | Five automated tests were written for the `games` app's search view, covering page load, empty query handling, valid search results, API error propagation, and platform filtering. All five tests passed successfully. | ✅ - No errors found. | <img src="docs/testing/automated-testing-games-views.png" alt="automated testing for views in games app"> |
+
+The IGDB service module (`games/services/igdb.py`) was tested manually via the Django shell which coveredg valid searches, short query rejection, missing credentials, and network error handling. Details of how this testing was completed is documented in the [IGDB API Search](https://github.com/louisfjames/gamecodex#defensive-design) section.
 
 ### Google Chrome Lighthouse
 
