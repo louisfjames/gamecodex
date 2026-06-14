@@ -3,14 +3,14 @@
 ## Table of Contents
 
 1. [Testing Approach](#testing-approach)
-2. [Testing Timeline](testing-timeline)
+2. [Testing Timeline](#testing-timeline)
 3. [Manual Testing](#manual-testing)
 4. [Acceptance Criteria Testing](#acceptance-criteria-testing)
 5. [HTML Validator](#html-validator)
 6. [CSS Validator](#css-validator)
 7. [JavaScript Validator](#javascript-validator)
 8. [Python Linter](#python-linter)
-9. [Automated Testing](#automated-testing)
+9. [Automated Testing via Django](#automated-testing-via-django)
 10. [Google Chrome Lighthouse](#google-chrome-lighthouse)
 11. [Bug Fixes](#bug-fixes)
 
@@ -309,7 +309,7 @@ As part of the testing process, quality assurance checks were conducted across a
 | profiles | forms.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/forms.py) | ✅ | Fix to spacing required and line length (4890df9) - now fixed.  |
 | profiles | models.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/models.py) | ✅ | Fix to spacing required (f99058e) - now fixed. |
 | profiles | test_forms.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/test_forms.py) | ✅ | None. |
-| profiles | test_views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/test_views.py) | 🔶 | None. |
+| profiles | test_views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/test_views.py) | ✅ | None. |
 | profiles | urls.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/urls.py) | ✅ | None. |
 | profiles | views.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/profiles/views.py) | ✅ | Fix to spacing required and line length across multiple functions (4725faa, 9acff50, 14ca59a & 16313be) - now all fixed.|
 | gamecodex | asgi.py | [Pep8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/louisfjames/gamecodex/refs/heads/main/gamecodex/asgi.py) | ✅ | None.|
@@ -329,9 +329,9 @@ in each app was removed and replaced with separate `test_forms.py` and `test_vie
 
 | App | File | Description | Status | Screenshot |
 |----|----|----|----|----|
-| Games | test_views.py | Five automated tests were written for the `games` app's search view, covering page load, empty query handling, valid search results, API error propagation, and platform filtering. All five tests passed successfully. | ✅ - No errors found. | <img src="docs/testing/automated-testing-games-views.png" alt="automated testing for views in games app"> |
-| Profiles | test_forms.py | Eleven automated tests were written for the `profiles` app's form validation, covering all six date and status rules defined in `GameEntryForm`. Both valid and invalid scenarios were tested for each rule. All eleven tests passed successfully. | ✅ - No errors found. | <img src="docs/testing/automated-testing-profile-forms.png" alt="automated testing for forms in profile app"> |
-| Profiles | test_views.py | Thirteen automated tests were written for the `profiles` app’s view logic, covering authentication behaviour, template rendering, context data accuracy, filtering, permissions, and database effects across all profile related views. All tests passed successfully. | ✅ - No errors found.  | <img src="docs/testing/automated-testing-profiles-views.png" alt="automated testing for views in profile app"> |
+| games | test_views.py | Five automated tests were written for the `games` app's search view, covering page load, empty query handling, valid search results, API error propagation, and platform filtering. All five tests passed successfully. | ✅ - No errors found. | <img src="docs/testing/automated-testing-games-views.png" alt="automated testing for views in games app"> |
+| profiles | test_forms.py | Eleven automated tests were written for the `profiles` app's form validation, covering all six date and status rules defined in `GameEntryForm`. Both valid and invalid scenarios were tested for each rule. All eleven tests passed successfully. | ✅ - No errors found. | <img src="docs/testing/automated-testing-profile-forms.png" alt="automated testing for forms in profile app"> |
+| profiles | test_views.py | Thirteen automated tests were written for the `profiles` app’s view logic, covering authentication behaviour, template rendering, context data accuracy, filtering, permissions, and database effects across all profile related views. All tests passed successfully. | ✅ - No errors found.  | <img src="docs/testing/automated-testing-profiles-views.png" alt="automated testing for views in profile app"> |
 
 The IGDB service module (`games/services/igdb.py`) was tested manually via the Django shell which coveredg valid searches, short query rejection, missing credentials, and network error handling. Details of how this testing was completed is documented in the [IGDB API Search](https://github.com/louisfjames/gamecodex#defensive-design) section.
 
